@@ -23,6 +23,9 @@ public class ScrollManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         _distance = 1f / (SIZE - 1);
         for (int i = 0; i < SIZE; i++) _pos[i] = _distance * i;
+
+        _targetPos = _pos[2];
+        _targetIndex = 2;
     }
 
     float SetPos()

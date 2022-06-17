@@ -30,10 +30,16 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Property")]
     [SerializeField] private float _hp;
+    [SerializeField] private float _attack;
     public float _HP
     {
         get => _hp;
         set => _hp = value;
+    }
+    public float _ATTACK
+    {
+        get => _attack;
+        set => _attack = value;
     }
 
     void Start()
@@ -44,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         _characterController = transform.GetComponentInParent<CharacterController>();
         _shotTime = _shotClip.length;
 
-        _HP = 5f;
+        _HP = 30f;
     }
 
     void Update()
@@ -108,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         Quaternion angle = Quaternion.Euler(90, transform.eulerAngles.y, 0);
         newArrow.transform.rotation = angle;
 
+        newArrow.transform.GetComponent<ArrowController>()._ATTACK = _ATTACK;
         newArrow.transform.GetComponent<ArrowController>().SendMessage("SetPlayer", transform);
     }
 
@@ -150,6 +157,20 @@ public class PlayerMovement : MonoBehaviour
             _animatorType = AnimatorType.DEATH;
             PlayAnimator();
             _isDead = true;
+        }
+    }
+
+
+    private void OnGUI()
+    {
+        if (_characterController != null)
+        {
+            var labelStyle = new GUIStyle();
+            labelStyle.fontSize = 50;
+            labelStyle.normal.textColor = Color.white;
+            GUILayout.Label("HP : " + _HP.ToString(), labelStyle);
+
+            GUILayout.Label("ATTACK : " + _ATTACK.ToString(), labelStyle);
         }
     }
 }

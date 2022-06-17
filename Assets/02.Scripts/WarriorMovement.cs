@@ -23,7 +23,7 @@ public class WarriorMovement : MonoBehaviour
     bool _isMoving = false;
     GameObject _target = null;
     Vector3 pos = Vector3.zero;
-
+    bool _isDead = false;
 
     [Header("Animator Property")]
     [SerializeField] private Animator _animator = null;
@@ -45,6 +45,7 @@ public class WarriorMovement : MonoBehaviour
 
     [Header("Warrior Property")]
     [SerializeField] private float _hp;
+    [SerializeField] private float _attack;
     public float _HP
     {
         get => _hp;
@@ -77,6 +78,8 @@ public class WarriorMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_isDead) return;
+
         FindingTarget();
         Move();
         PlayAnimator();
@@ -254,9 +257,26 @@ public class WarriorMovement : MonoBehaviour
                 break;
             case AnimatorType.DEATH:
                 _animator.SetTrigger("Death");
+                Invoke("Dead", 3f);
                 break;
         }
 
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (_HP <= 0) return;
+
+        _HP -= damage;
+        _animatorType = AnimatorType.HIT;
+        PlayAnimator();
+
+        if (_HP <= 0)
+        {
+            _animatorType = AnimatorType.DEATH;
+            PlayAnimator();
+            _isDead = true;
+        }
     }
 
     public void SetIsFunch(int index)
@@ -264,6 +284,10 @@ public class WarriorMovement : MonoBehaviour
         _funchCol[index].GetComponent<WarriorFunch>().SetIsFunch();
     }
 
+    void Dead()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnDrawGizmos()
     {
