@@ -340,13 +340,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 1
   ViewAngle: 100
-  ViewRadius: 10
+  ViewRadius: 20
   _targetMask:
     serializedVersion: 2
     m_Bits: 64
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _characterController: {fileID: 4498498496580104880}
   _currentSpeed: 4
   _targetChaseSpeed: 4
@@ -361,7 +361,7 @@ MonoBehaviour:
   _funchCol:
   - {fileID: 4557607675798375327}
   - {fileID: 4557607676286402406}
-  _hp: 0
+  _hp: 10
 --- !u!143 &4498498496580104880
 CharacterController:
   m_ObjectHideFlags: 0

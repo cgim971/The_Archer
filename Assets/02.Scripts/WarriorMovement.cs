@@ -43,12 +43,21 @@ public class WarriorMovement : MonoBehaviour
     float _rightFunchTime = 0;
     float _rightFunchCurrentTime = 0;
 
-    [Header("Player Property")]
+    [Header("Warrior Property")]
     [SerializeField] private float _hp;
     public float _HP
     {
         get => _hp;
-        set => _hp = value;
+        set
+        {
+            _hp = value;
+
+            if (_hp <= 0)
+            {
+                _animatorType = AnimatorType.DEATH;
+                PlayAnimator();
+            }
+        }
     }
 
     void Start()
@@ -93,7 +102,20 @@ public class WarriorMovement : MonoBehaviour
             {
                 pos.x = (Random.Range(0f, 2f) - 1);
                 pos.z = (Random.Range(0f, 2f) - 1);
+
             }
+        }
+    }
+
+    void CheckWall()
+    {
+        Ray ray1 = new Ray(transform.position + new Vector3(0.5f, 0f, 0f), transform.forward + new Vector3(0.5f, 0f, 0f));
+        Ray ray2 = new Ray(transform.position - new Vector3(0.5f, 0f, 0f), transform.forward - new Vector3(0.5f, 0f, 0f));
+
+        if (Physics.Raycast(ray1, 1.1f, _obstacleMask) || Physics.Raycast(ray2, 1.1f, _obstacleMask))
+        {
+            pos.x *= -1;
+            pos.z *= -1;
         }
     }
 
@@ -113,7 +135,7 @@ public class WarriorMovement : MonoBehaviour
         Vector3 targetDir = index.normalized;
         float targetAngle = Mathf.Acos(Vector3.Dot(lookDir, targetDir)) * Mathf.Rad2Deg;
 
-        if (targetAngle <= ViewAngle * 0.5f && !Physics.Raycast(myPos, targetDir, ViewRadius, _obstacleMask))
+        if (targetAngle <= ViewAngle * 0.5f && !Physics.Raycast(myPos, targetDir, targetDir.magnitude, _obstacleMask))
         {
             this._target = target[0].gameObject;
             if (target != null)
@@ -144,6 +166,8 @@ public class WarriorMovement : MonoBehaviour
 
     void Move()
     {
+        CheckWall();
+
         if (_leftFunchCurrentTime > 0)
         {
             _leftFunchCurrentTime -= Time.deltaTime;
