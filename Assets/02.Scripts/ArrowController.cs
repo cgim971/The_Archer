@@ -32,14 +32,9 @@ public class ArrowController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("fist"))
         {
             other.GetComponent<WarriorMovement>().TakeDamage(_attack);
-            Destroy(this.gameObject);
-        }
-        else if (other.CompareTag("fist"))
-        {
-            other.GetComponentInParent<WarriorMovement>().TakeDamage(_attack);
             Destroy(this.gameObject);
         }
         else if (!other.CompareTag("Player"))

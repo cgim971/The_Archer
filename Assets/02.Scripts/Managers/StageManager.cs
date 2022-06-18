@@ -17,6 +17,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Text _text;
     string nextScene = string.Empty;
     Sequence seq = null;
+    [SerializeField] int money = 100;
 
     private void Awake()
     {
@@ -56,10 +57,11 @@ public class StageManager : MonoBehaviour
         seq.Join(_text.DOColor(new Color(0, 0, 0, 1), 0.4f));
 
         // 다음 스테이지 창 뜨지만 현재 씬 다시
-        _text.text = "CLEAR\n\n터치 시 다음 스테이지";
+        _text.text = $"CLEAR\n\n{money}원 획득\n\n터치 시 다음 스테이지";
 
         _text.raycastTarget = true;
         _imageBtn.interactable = true;
+        GameManager.Instance._PLAYERSAVE._MONEY += money;
 
         nextScene = "Main";
     }
@@ -71,10 +73,12 @@ public class StageManager : MonoBehaviour
         seq.Join(_text.DOColor(new Color(0, 0, 0, 1), 0.4f));
 
         // 플레이어 죽음
-        _text.text = "당신은 죽었습니다.\n\n터치 시 로비로";
+        _text.text = $"당신은 죽었습니다.\n\n{money / 2}원 획득\n\n터치 시 로비로";
 
         _text.raycastTarget = true;
         _imageBtn.interactable = true;
+
+        GameManager.Instance._PLAYERSAVE._MONEY += money / 2;
 
         nextScene = "Lobby";
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [Header("Movement Property")]
     [SerializeField] private CharacterController _characterController = null;
     [Tooltip("Player Velocity")] private Vector3 _velocity;
@@ -58,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
         PlayAnimator();
 
         _characterController.Move(_velocity * Time.deltaTime);
-
-        if (Input.GetMouseButtonDown(1)) TakeDamage(1f);
     }
 
     void Move()
@@ -163,18 +160,20 @@ public class PlayerMovement : MonoBehaviour
             var labelStyle = new GUIStyle();
             labelStyle.fontSize = 50;
             labelStyle.normal.textColor = Color.white;
+            GUILayout.Label("플레이어 이동 : WASD, 플레이어 공격 : 마우스 좌클릭", labelStyle);
+
             GUILayout.Label("HP : " + _playerSave._HP.ToString(), labelStyle);
 
             GUILayout.Label("ATTACK : " + _playerSave._ATTACK.ToString(), labelStyle);
 
             GUILayout.Label("DEFENSE : " + _playerSave._DEFENSE.ToString(), labelStyle);
 
-            GUILayout.Label("HELMET : " + _playerSave.GetItemEquip(0).ToString() + " " + _playerSave.GetItemName(0), labelStyle);
-            GUILayout.Label("WEAPON : " + _playerSave.GetItemEquip(1).ToString() + " " + _playerSave.GetItemName(1), labelStyle);
-            GUILayout.Label("CHEST : " + _playerSave.GetItemEquip(2).ToString() + " " + _playerSave.GetItemName(2), labelStyle);
-            GUILayout.Label("PANTS : " + _playerSave.GetItemEquip(3).ToString() + " " + _playerSave.GetItemName(3), labelStyle);
-            GUILayout.Label("SHOULDER : " + _playerSave.GetItemEquip(4).ToString() + " " + _playerSave.GetItemName(4), labelStyle);
-            GUILayout.Label("BOOTS : " + _playerSave.GetItemEquip(5).ToString() + " " + _playerSave.GetItemName(5), labelStyle);
+            //GUILayout.Label("HELMET : " + _playerSave.GetItemEquip(0).ToString() + " " + _playerSave.GetItemName(0), labelStyle);
+            //GUILayout.Label("WEAPON : " + _playerSave.GetItemEquip(1).ToString() + " " + _playerSave.GetItemName(1), labelStyle);
+            //GUILayout.Label("CHEST : " + _playerSave.GetItemEquip(2).ToString() + " " + _playerSave.GetItemName(2), labelStyle);
+            //GUILayout.Label("PANTS : " + _playerSave.GetItemEquip(3).ToString() + " " + _playerSave.GetItemName(3), labelStyle);
+            //GUILayout.Label("SHOULDER : " + _playerSave.GetItemEquip(4).ToString() + " " + _playerSave.GetItemName(4), labelStyle);
+            //GUILayout.Label("BOOTS : " + _playerSave.GetItemEquip(5).ToString() + " " + _playerSave.GetItemName(5), labelStyle);
         }
     }
 }
