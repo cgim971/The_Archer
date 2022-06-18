@@ -9,19 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5073ad26ae92c974ab482d30e5a88a72, type: 3}
-  m_Name: PlayerSave
+  m_Script: {fileID: 11500000, guid: efac77d585b571d4ea2bf323e94af46f, type: 3}
+  m_Name: CHEST_2
   m_EditorClassIdentifier: 
-  _money: 100
-  _hp: 30
-  _maxHp: 30
-  _attack: 2
-  _defense: 1
-  _isItemEquip: 000000000000
-  _itemName:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  _itemName: chest_blue
+  _itemType: 3
+  _effect: 3
+  _hasItem: 0

@@ -46,6 +46,16 @@ public class RandomItem : MonoBehaviour
                     _list._HASITEMCOUNT++;
 
                     UIManager.instance.SetText(_list._ITEMSAVES[i]._ITEMNAME);
+
+                    if (_index != 1)
+                    {
+                        GameManager.Instance.SetDefense(_list);
+                    }
+                    else
+                    {
+                        GameManager.Instance.SetAttack(_list);
+                    }
+
                     return;
                 }
                 else index--;

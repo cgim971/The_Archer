@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
         _matchBtn.onClick.AddListener(() => MatchScene());
         _imageBtn = _image.GetComponent<Button>();
         _imageBtn.interactable = false;
+        _text.raycastTarget = false;
         _imageBtn.onClick.AddListener(() => EndText());
     }
 
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviour
         _text.text = text + "È¹µæ";
         startSeq.Play();
 
+        _text.raycastTarget = true;
         _imageBtn.interactable = true;
     }
 
@@ -58,6 +60,7 @@ public class UIManager : MonoBehaviour
         _text.text = string.Empty;
         endSeq.Play();
 
+        _text.raycastTarget = false;
         _imageBtn.interactable = false;
     }
 
@@ -75,7 +78,7 @@ public class UIManager : MonoBehaviour
         GUILayout.Label("BOOTS : " + GameManager.Instance._ITEMLIST._ITEMTYPESAVES[5]._HASITEMCOUNT.ToString() + " / " + GameManager.Instance._ITEMLIST._ITEMTYPESAVES[5]._ITEMSAVES.Count.ToString(), labelStyle);
         var labelStyle2 = new GUIStyle();
         labelStyle2.fontSize = 100;
-        if (GUI.Button(new Rect(1100, 0, 300, 200), "µ· 10 »ó½Â", labelStyle2))
+        if (GUI.Button(new Rect(1000, 100, 500, 200), "µ· 10 »ó½Â", labelStyle2))
         {
             GameManager.Instance._PLAYERSAVE._MONEY += 10;
         }

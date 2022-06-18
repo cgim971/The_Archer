@@ -45,4 +45,58 @@ public class GameManager : SMonoBehaviour<GameManager>
     {
         get => _itemList;
     }
+
+    public void SetDefense(ItemTypeList list)
+    {
+        float index = 1;
+
+        foreach (ItemSave item in list._ITEMSAVES)
+        {
+            if (item._HASITEM)
+                index += item._EFFECT;
+        }
+
+        _PLAYERSAVE._DEFENSE = index;
+    }
+
+    public void SetDefense()
+    {
+        float index = 1;
+
+        foreach (ItemTypeList list in _itemList._ITEMTYPESAVES)
+        {
+            foreach (ItemSave item in list._ITEMSAVES)
+            {
+                if (item._HASITEM)
+                    index += item._EFFECT;
+            }
+        }
+
+        _PLAYERSAVE._DEFENSE = index;
+    }
+
+    public void SetAttack(ItemTypeList list)
+    {
+        float index = 2;
+
+        foreach (ItemSave item in list._ITEMSAVES)
+        {
+            if (item._HASITEM)
+                index += item._EFFECT;
+        }
+
+        _PLAYERSAVE._ATTACK = index;
+    }
+    public void SetAttack()
+    {
+        float index = 2;
+
+        foreach (ItemSave item in _itemList._ITEMTYPESAVES[1]._ITEMSAVES)
+        {
+            if (item._HASITEM)
+                index += item._EFFECT;
+        }
+
+        _PLAYERSAVE._ATTACK = index;
+    }
 }

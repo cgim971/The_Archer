@@ -1288,7 +1288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423751941733029024, guid: c0f60c0462debd34c8bb8b30f7ad9d2c, type: 3}
       propertyPath: m_Text
-      value: pants / 100
+      value: shoulder / 100
       objectReference: {fileID: 0}
     - target: {fileID: 4432439010185847389, guid: c0f60c0462debd34c8bb8b30f7ad9d2c, type: 3}
       propertyPath: _cost
@@ -3480,7 +3480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423751941733029024, guid: c0f60c0462debd34c8bb8b30f7ad9d2c, type: 3}
       propertyPath: m_Text
-      value: shoulder / 100
+      value: pants / 100
       objectReference: {fileID: 0}
     - target: {fileID: 4432439010185847389, guid: c0f60c0462debd34c8bb8b30f7ad9d2c, type: 3}
       propertyPath: _cost

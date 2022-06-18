@@ -57,6 +57,8 @@ public class WarriorMovement : MonoBehaviour
             {
                 _animatorType = AnimatorType.DEATH;
                 PlayAnimator();
+
+                StageManager.instance._WARRIORCOUNT -= 1;
             }
         }
     }

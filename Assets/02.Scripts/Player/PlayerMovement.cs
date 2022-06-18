@@ -43,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
         _playerSave = GameManager.Instance._PLAYERSAVE;
 
         _playerSave._HP = _playerSave._MAXHP;
+
+        GameManager.Instance.SetAttack();
+        GameManager.Instance.SetDefense();
     }
 
     void Update()
@@ -139,8 +142,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (_playerSave._HP <= 0) return;
-
-        _playerSave._HP -= (damage - _playerSave._DEFENSE);
+        _playerSave._HP -= (damage - (_playerSave._DEFENSE / 20));
         _animatorType = AnimatorType.HIT;
         PlayAnimator();
 
@@ -149,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
             _animatorType = AnimatorType.DEATH;
             PlayAnimator();
             _isDead = true;
+            StageManager.instance.Death();
         }
     }
 

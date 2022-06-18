@@ -29,8 +29,8 @@ public class PlayerSave : ScriptableObject
         set => _hp = value;
     }
     public float _MAXHP { get => _maxHp; }
-    public float _ATTACK { get => _attack; }
-    public float _DEFENSE { get => _defense; }
+    public float _ATTACK { get => _attack; set => _attack = value; }
+    public float _DEFENSE { get => _defense; set => _defense = value; }
 
     public void SetItemEquip(int index, bool isItemEquip)
     {
@@ -63,4 +63,6 @@ public class PlayerSave : ScriptableObject
 
         return _itemName[index];
     }
+
+    
 }

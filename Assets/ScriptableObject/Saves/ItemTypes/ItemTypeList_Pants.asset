@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e457cc29a6532d45950eed9090ada79, type: 3}
   m_Name: ItemTypeList_Pants
   m_EditorClassIdentifier: 
-  _itemSave: []
-  _hasItemCount: 0
+  _itemSave:
+  - {fileID: 11400000, guid: 628cec974725cb442b6049c63033aa12, type: 2}
+  - {fileID: 11400000, guid: 3184d853a8484a84a8b1b8c05614e141, type: 2}
+  - {fileID: 11400000, guid: a6ddeb410ea6a564c85024500bc75108, type: 2}
+  _hasItemCount: 1

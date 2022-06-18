@@ -37,7 +37,12 @@ public class ArrowController : MonoBehaviour
             other.GetComponent<WarriorMovement>().TakeDamage(_attack);
             Destroy(this.gameObject);
         }
-        else if(!other.CompareTag("Player"))
+        else if (other.CompareTag("fist"))
+        {
+            other.GetComponentInParent<WarriorMovement>().TakeDamage(_attack);
+            Destroy(this.gameObject);
+        }
+        else if (!other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
         }
