@@ -28,7 +28,6 @@ public class RandomItem : MonoBehaviour
         if (GameManager.Instance._PLAYERSAVE._MONEY >= _cost)
         {
             GameManager.Instance._PLAYERSAVE._MONEY -= _cost;
-            Debug.Log("A");
             GetItem();
         }
     }
@@ -46,6 +45,7 @@ public class RandomItem : MonoBehaviour
                     _list._ITEMSAVES[i]._HASITEM = true;
                     _list._HASITEMCOUNT++;
 
+                    UIManager.instance.SetText(_list._ITEMSAVES[i]._ITEMNAME);
                     return;
                 }
                 else index--;

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e457cc29a6532d45950eed9090ada79, type: 3}
   m_Name: ItemTypeList_Weapon
   m_EditorClassIdentifier: 
-  _itemSave: []
-  _hasItemCount: 0
+  _itemSave:
+  - {fileID: 11400000, guid: 37c884ca85f27514e80a70b287445f23, type: 2}
+  - {fileID: 11400000, guid: 56a4066626f9aa8458d915bb72839a47, type: 2}
+  - {fileID: 11400000, guid: 163eef5e6df31b246b8da5b3bf400297, type: 2}
+  _hasItemCount: 3

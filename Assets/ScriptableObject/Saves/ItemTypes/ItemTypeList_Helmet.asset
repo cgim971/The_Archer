@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemSave:
   - {fileID: 11400000, guid: 058548c057493b640a8474fc8d493203, type: 2}
-  _hasItemCount: 0
+  - {fileID: 11400000, guid: 41a12a61282cd1c4fbdd4f1359bdda28, type: 2}
+  - {fileID: 11400000, guid: b04be78b0025f99408c2317737db48b2, type: 2}
+  _hasItemCount: 3
