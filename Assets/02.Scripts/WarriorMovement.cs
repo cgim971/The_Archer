@@ -257,6 +257,7 @@ public class WarriorMovement : MonoBehaviour
                 break;
             case AnimatorType.DEATH:
                 _animator.SetTrigger("Death");
+                StopCoroutine(RandomIndex());
                 Invoke("Dead", 3f);
                 break;
         }

@@ -5334,7 +5334,7 @@ MonoBehaviour:
   _shotClip: {fileID: 7400000, guid: 2fb73324a35e4f848a526c3c9ea03c24, type: 2}
   _shotPos: {fileID: 4385110653695562515}
   _arrow: {fileID: 7318468707401013693, guid: 36263f2034e6ad74bbd630c29d94f5ac, type: 3}
-  _hp: 0
+  _playerSave: {fileID: 0}
 --- !u!1 &7876444273402785690
 GameObject:
   m_ObjectHideFlags: 0
