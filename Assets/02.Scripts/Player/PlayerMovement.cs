@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(index), _rotateDamp * Time.deltaTime);
 
         index *= _currentSpeed;
+
         if (_characterController.isGrounded) index.y = 0;
         else index.y -= _gravity * Time.deltaTime;
 
