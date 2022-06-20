@@ -233,12 +233,12 @@ public class WarriorMovement : MonoBehaviour
         if (_rightFunchCurrentTime > 0) return;
 
         if (_funchIndex == 0) _leftFunchCurrentTime = _leftFunchTime;
-        else if (_funchIndex == 1) _rightFunchCurrentTime = _rightFunchTime;
+        else if (_funchIndex >= 1) _rightFunchCurrentTime = _rightFunchTime;
 
         _animator.SetFloat("FunchIndex", _funchIndex);
         _animator.SetTrigger("Funch");
 
-        if (_funchIndex >= 2) _funchIndex = 0;
+        if (_funchIndex >= 1) _funchIndex = 0;
     }
 
     void PlayAnimator()
@@ -282,15 +282,9 @@ public class WarriorMovement : MonoBehaviour
         }
     }
 
-    public void SetIsFunch(int index)
-    {
-        _funchCol[index].GetComponent<WarriorFunch>().SetIsFunch();
-    }
+    public void SetIsFunch(int index) => _funchCol[index].GetComponent<WarriorFunch>().SetIsFunch();
 
-    void Dead()
-    {
-        Destroy(gameObject);
-    }
+    void Dead() => Destroy(gameObject);
 
     private void OnDrawGizmos()
     {

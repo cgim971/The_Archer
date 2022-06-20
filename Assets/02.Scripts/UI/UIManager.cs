@@ -32,10 +32,7 @@ public class UIManager : MonoBehaviour
         _imageBtn.onClick.AddListener(() => EndText());
     }
 
-    void MatchScene()
-    {
-        SceneManager.LoadScene("Main");
-    }
+    void MatchScene() => SceneManager.LoadScene("main");
 
     public void SetText(string text)
     {

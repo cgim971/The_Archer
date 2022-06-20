@@ -9,15 +9,9 @@ public class ArrowController : MonoBehaviour
     [SerializeField] private float _speed = 5f;
     private Transform _player;
     [SerializeField] private float _attack;
-    public float _ATTACK
-    {
-        set => _attack = value;
-    }
+    public float _ATTACK { set => _attack = value; }
 
-    private void Start()
-    {
-        _rigid = GetComponent<Rigidbody>();
-    }
+    private void Start() => _rigid = GetComponent<Rigidbody>();
 
     void SetPlayer(Transform player)
     {

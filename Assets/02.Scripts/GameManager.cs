@@ -36,15 +36,9 @@ public class GameManager : SMonoBehaviour<GameManager>
         return;
     }
 
-    public PlayerSave _PLAYERSAVE
-    {
-        get => _playerSave;
-    }
+    public PlayerSave _PLAYERSAVE { get => _playerSave; }
 
-    public ItemList _ITEMLIST
-    {
-        get => _itemList;
-    }
+    public ItemList _ITEMLIST { get => _itemList; }
 
     public void SetDefense(ItemTypeList list)
     {

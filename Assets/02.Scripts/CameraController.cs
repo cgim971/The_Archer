@@ -31,9 +31,6 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(transform.position.x, nowHeight, transform.position.z);
     }
 
-    private void LateUpdate()
-    {
-        ThirdCamera();
-    }
+    private void LateUpdate() => ThirdCamera();
 
 }

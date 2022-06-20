@@ -17,8 +17,5 @@ public class WarriorFunch : MonoBehaviour
         }
     }
 
-    public void SetIsFunch()
-    {
-        _isFunch = !_isFunch;
-    }
+    public void SetIsFunch()=>_isFunch = !_isFunch;
 }
