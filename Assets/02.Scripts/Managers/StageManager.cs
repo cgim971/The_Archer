@@ -87,5 +87,4 @@ public class StageManager : MonoBehaviour
     {
         SceneManager.LoadScene(nextScene);
     }
-
 }

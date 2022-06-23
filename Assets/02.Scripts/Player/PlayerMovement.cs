@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator = null;
     [SerializeField] private AnimatorType _animatorType = AnimatorType.NONE;
     [SerializeField] private AnimationClip _shotClip;
+    [SerializeField] private AnimationClip _hitClip;
     float _shotTime = 0;
     float _shotCurrentTime = 0;
 
@@ -100,15 +101,22 @@ public class PlayerMovement : MonoBehaviour
         _animatorType = AnimatorType.SHOT;
     }
 
+    public void EndHit()
+    {
+        _isAttacking = true;
+    }
+
+    bool _isAttacking = true;
     public void Attacking()
     {
+        if (!_isAttacking) return;
         GameObject newArrow = Instantiate(_arrow, null);
         newArrow.transform.position = _shotPos.position;
         Quaternion angle = Quaternion.Euler(90, transform.eulerAngles.y, 0);
         newArrow.transform.rotation = angle;
 
         newArrow.transform.GetComponent<ArrowController>()._ATTACK = _playerSave._ATTACK;
-        newArrow.transform.GetComponent<ArrowController>().SendMessage("SetPlayer", transform);
+        newArrow.transform.GetComponent<ArrowController>().SendMessage("SetPlayer", newArrow.transform.position - transform.position);
     }
 
     void PlayAnimator()
@@ -130,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case AnimatorType.HIT:
                 _animator.SetTrigger("GetHit");
+                _isAttacking = false;
                 break;
             case AnimatorType.DEATH:
                 _animator.SetTrigger("Death");
@@ -140,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (_playerSave._HP <= 0) return;
-        _playerSave._HP -= (damage - (_playerSave._DEFENSE / 20));
+        _playerSave._HP -= (damage - (_playerSave._DEFENSE > 20 ? 19 : _playerSave._DEFENSE) / 20);
         _animatorType = AnimatorType.HIT;
         PlayAnimator();
 
@@ -168,13 +177,6 @@ public class PlayerMovement : MonoBehaviour
             GUILayout.Label("ATTACK : " + _playerSave._ATTACK.ToString(), labelStyle);
 
             GUILayout.Label("DEFENSE : " + _playerSave._DEFENSE.ToString(), labelStyle);
-
-            //GUILayout.Label("HELMET : " + _playerSave.GetItemEquip(0).ToString() + " " + _playerSave.GetItemName(0), labelStyle);
-            //GUILayout.Label("WEAPON : " + _playerSave.GetItemEquip(1).ToString() + " " + _playerSave.GetItemName(1), labelStyle);
-            //GUILayout.Label("CHEST : " + _playerSave.GetItemEquip(2).ToString() + " " + _playerSave.GetItemName(2), labelStyle);
-            //GUILayout.Label("PANTS : " + _playerSave.GetItemEquip(3).ToString() + " " + _playerSave.GetItemName(3), labelStyle);
-            //GUILayout.Label("SHOULDER : " + _playerSave.GetItemEquip(4).ToString() + " " + _playerSave.GetItemName(4), labelStyle);
-            //GUILayout.Label("BOOTS : " + _playerSave.GetItemEquip(5).ToString() + " " + _playerSave.GetItemName(5), labelStyle);
         }
     }
 }

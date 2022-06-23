@@ -7,17 +7,13 @@ public class ArrowController : MonoBehaviour
     [Header("Movement Property")]
     [SerializeField] private Rigidbody _rigid;
     [SerializeField] private float _speed = 5f;
-    private Transform _player;
     [SerializeField] private float _attack;
     public float _ATTACK { set => _attack = value; }
 
     private void Start() => _rigid = GetComponent<Rigidbody>();
 
-    void SetPlayer(Transform player)
+    void SetPlayer(Vector3 dir)
     {
-        _player = player;
-
-        Vector3 dir = transform.position - _player.position;
         dir.y = 0;
         dir.Normalize();
 
@@ -28,7 +24,7 @@ public class ArrowController : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("fist"))
         {
-            other.GetComponent<WarriorMovement>().TakeDamage(_attack);
+            other.GetComponentInParent<WarriorMovement>().TakeDamage(_attack);
             Destroy(this.gameObject);
         }
         else if (!other.CompareTag("Player"))
