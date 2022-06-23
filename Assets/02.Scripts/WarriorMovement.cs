@@ -112,6 +112,7 @@ public class WarriorMovement : MonoBehaviour
         }
     }
 
+    // 수정 필요
     void CheckWall()
     {
         Ray ray1 = new Ray(transform.position + new Vector3(0.5f, 0f, 0f), transform.forward + new Vector3(0.5f, 0f, 0f));
