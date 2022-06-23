@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float _gravity = 10f;
     Transform _cameraTransform;
     bool _isDead = false;
+    PlayerJoystick _joystick;
 
     [Header("Animator Property")]
     [SerializeField] private Animator _animator = null;
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        _joystick = FindObjectOfType<PlayerJoystick>();
+
         _cameraTransform = Camera.main.transform;
 
         _velocity = Vector3.zero;
@@ -70,8 +73,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_shotCurrentTime > 0) return;
 
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        //float h = Input.GetAxisRaw("Horizontal");
+        //float v = Input.GetAxisRaw("Vertical");
+
+        float h = _joystick.VecMove.x;
+        float v = _joystick.VecMove.z;
 
         Vector3 forward = _cameraTransform.forward;
         forward.y = 0;
@@ -97,8 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Attack()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
-        _animatorType = AnimatorType.SHOT;
+        //if (!Input.GetMouseButtonDown(0)) return;
+        //_animatorType = AnimatorType.SHOT;
     }
 
     public void EndHit()
