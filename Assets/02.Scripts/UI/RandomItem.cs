@@ -5,63 +5,26 @@ using UnityEngine.UI;
 
 public class RandomItem : MonoBehaviour
 {
-    [SerializeField] Button _btn;
-
-    [SerializeField] private long _cost;
-    [SerializeField] private int _index;
-    private ItemTypeList _list;
+    [SerializeField] Button _purchaseBtn;
+    [SerializeField] private Text _nameText;
+    [SerializeField] private Text _costText;
+    [SerializeField] private int _cost;
 
     private void Start()
     {
-        if (_btn == null)
-            _btn = GetComponentInChildren<Button>();
-
-        _list = GameManager.Instance._ITEMLIST._ITEMTYPESAVES[_index];
-
-        _btn.onClick.AddListener(() => Use());
+        _purchaseBtn.onClick.AddListener(() => ItemPurchase());
+        _nameText.text = "Àåºñ »Ì±â";
+        _costText.text = $"{_cost}¿ø";
     }
 
-    void Use()
+    void ItemPurchase()
     {
-        if (_list._HASITEMCOUNT >= _list._ITEMSAVES.Count) return;
+        if (GameManager.Instance._PLAYERSAVE._MONEY < _cost) return;
+        GameManager.Instance._ITEMLIST.HasItem();
+        if (!GameManager.Instance._ITEMLIST.AbleItem()) return;
 
-        if (GameManager.Instance._PLAYERSAVE._MONEY >= _cost)
-        {
-            GameManager.Instance._PLAYERSAVE._MONEY -= _cost;
-            GetItem();
-        }
+        GameManager.Instance._PLAYERSAVE._MONEY -= _cost;
+
+        GameManager.Instance._ITEMLIST.GetItem();
     }
-
-    void GetItem()
-    {
-        int index = Random.Range(0, _list._ITEMSAVES.Count - _list._HASITEMCOUNT);
-
-        for (int i = 0; i < _list._ITEMSAVES.Count; i++)
-        {
-            if (!_list._ITEMSAVES[i]._HASITEM)
-            {
-                if (index == 0)
-                {
-                    _list._ITEMSAVES[i]._HASITEM = true;
-                    _list._HASITEMCOUNT++;
-
-                    UIManager.instance.SetText(_list._ITEMSAVES[i]._ITEMNAME);
-
-                    if (_index != 1)
-                    {
-                        GameManager.Instance.SetDefense(_list);
-                    }
-                    else
-                    {
-                        GameManager.Instance.SetAttack(_list);
-                    }
-
-                    return;
-                }
-                else index--;
-            }
-        }
-    }
-
-
 }

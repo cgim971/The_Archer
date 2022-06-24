@@ -17,16 +17,8 @@ public class PlayerJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         get { return _vecMove; }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //_rectBack = transform.Find("JoystickBackgroundImage").GetComponent<RectTransform>();
-        //_rectJoystick = transform.Find("JoystickImage").GetComponent<RectTransform>();
+    void Start() => _joystickRadius = _rectBack.rect.width * 0.5f;
 
-        Debug.Log(_rectBack);
-
-        _joystickRadius = _rectBack.rect.width * 0.5f;
-    }
 
     void OnTouch(Vector2 vecTouch)
     {
@@ -59,6 +51,4 @@ public class PlayerJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         _vecMove = Vector3.zero;
         _isTouch = false;
     }
-
-
 }

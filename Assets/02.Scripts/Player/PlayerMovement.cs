@@ -47,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
         _playerSave._HP = _playerSave._MAXHP;
 
-        GameManager.Instance.SetAttack();
-        GameManager.Instance.SetDefense();
+        //GameManager.Instance.SetAttack();
+        //GameManager.Instance.SetDefense();
     }
 
     void Update()
@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
         Move();
 
         Attack();
-      // FindingTarget();
         PlayAnimator();
 
         _characterController.Move(_velocity * Time.deltaTime);
@@ -104,8 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Attack()
     {
-        //if (!Input.GetMouseButtonDown(0)) return;
-        //_animatorType = AnimatorType.SHOT;
+        if (!Input.GetMouseButtonDown(0)) return;
+        _animatorType = AnimatorType.SHOT;
     }
 
     public void EndHit()
@@ -133,45 +132,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask _targetMask;
     [SerializeField] LayerMask _obstacleMask;
 
-    void FindingTarget()
-    {
-        Vector3 myPos = transform.position + Vector3.up;
-
-        float lookingAngle = transform.eulerAngles.y;
-        Vector3 lookDir = AngleToDir(lookingAngle);
-        lookDir.y = 0;
-        Collider[] target = Physics.OverlapSphere(myPos, ViewRadius, _targetMask);
-
-        if (target.Length == 0) return;
-        Vector3 targetPos = target[0].transform.position;
-        Vector3 index = (targetPos - myPos);
-        index.y = 0;
-        Vector3 targetDir = index.normalized;
-        float targetAngle = Mathf.Acos(Vector3.Dot(lookDir, targetDir)) * Mathf.Rad2Deg;
-
-        if (targetAngle <= ViewAngle * 0.5f && !Physics.Raycast(myPos, targetDir, targetDir.magnitude, _obstacleMask))
-        {
-            if (target != null)
-            {
-                if (index.magnitude <= 10)
-                {
-                    transform.LookAt(target[0].transform);
-                    _animatorType = AnimatorType.SHOT;
-                    PlayAnimator();
-                }
-            }
-            return;
-        }
-
-        return;
-    }
-
     Vector3 AngleToDir(float angle)
     {
         float radian = angle * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(radian), 0f, Mathf.Cos(radian));
     }
-
 
     void PlayAnimator()
     {
@@ -212,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
             _animatorType = AnimatorType.DEATH;
             PlayAnimator();
             _isDead = true;
-            StageManager.instance.Death();
+            StageManager.instance.Defeat();
         }
     }
 

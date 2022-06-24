@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efac77d585b571d4ea2bf323e94af46f, type: 3}
-  m_Name: BOOTS_0
+  m_Name: item_1
   m_EditorClassIdentifier: 
-  _itemName: boots_white
-  _itemType: 6
-  _effect: 1
-  _hasItem: 0
+  _itemNumber: 1
+  _itemName: "\uD754\uD55C \uBC14\uC9C0"
+  _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBC14\uC9C0\uC774\uB2E4."
+  _itemTier: 1
+  _itemType: 4
+  _hasItem: 1
