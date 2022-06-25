@@ -34,8 +34,6 @@ public class ItemList : ScriptableObject
 
         foreach (ItemSave item in _ITEMSAVES)
         {
-            Debug.Log((int)item._ITEMTIER);
-            Debug.Log(itemTier);
             if ((int)item._ITEMTIER == itemTier)
             {
                 if (!item._HASITEM)

@@ -62,7 +62,7 @@ public class WarriorMovement : MonoBehaviour
             }
         }
     }
-    public float _maxHp = 5;
+    public float _maxHp = 10;
 
     bool _isStart = false;
     void StartTime()

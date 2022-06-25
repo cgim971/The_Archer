@@ -15,3 +15,5 @@ MonoBehaviour:
   _itemSaves:
   - {fileID: 11400000, guid: f0cb4f093cd98c640a88f0aa3ad47d05, type: 2}
   - {fileID: 11400000, guid: 0ad1eece1b5eaa0469c635190cf87521, type: 2}
+  - {fileID: 11400000, guid: 7d421681d457cfd439cf06d5c8add6be, type: 2}
+  - {fileID: 11400000, guid: f831822a4d3886c4c910e40781cb867c, type: 2}

@@ -56,12 +56,16 @@ public class StageManager : MonoBehaviour
     public void ShowPanel(bool isVictory)
     {
         _image.transform.gameObject.SetActive(true);
+        _lobbyBtn.gameObject.SetActive(true);
         if (isVictory) _nextBtn.gameObject.SetActive(true);
 
         Sequence seq = DOTween.Sequence();
         seq.Append(_image.DOFade(1, _delay));
         if (isVictory) seq.Join(_nextBtn.image.DOFade(1, _delay));
         seq.Join(_lobbyBtn.image.DOFade(1, _delay));
+
+        _nextBtn.GetComponentInChildren<Text>().text = "Next Stage";
+        _lobbyBtn.GetComponentInChildren<Text>().text = "Lobby";
 
         seq.Play();
     }
@@ -72,11 +76,16 @@ public class StageManager : MonoBehaviour
         seq.Append(_image.DOFade(0, 0));
         seq.Join(_nextBtn.image.DOFade(0, 0));
         seq.Join(_lobbyBtn.image.DOFade(0, 0));
-        seq.Play();
+
         _titleText.text = string.Empty;
         _contentsText.text = string.Empty;
+        _nextBtn.GetComponentInChildren<Text>().text = string.Empty;
+        _lobbyBtn.GetComponentInChildren<Text>().text = string.Empty;
+
+        seq.Play();
 
         _nextBtn.gameObject.SetActive(false);
+        _lobbyBtn.gameObject.SetActive(false);
         _image.gameObject.SetActive(false);
     }
 
@@ -87,12 +96,15 @@ public class StageManager : MonoBehaviour
         seq.Join(_nextBtn.image.DOFade(0, _delay));
         seq.Join(_lobbyBtn.image.DOFade(0, _delay));
 
-        seq.Play();
-
         _titleText.text = string.Empty;
         _contentsText.text = string.Empty;
+        _nextBtn.GetComponentInChildren<Text>().text = string.Empty;
+        _lobbyBtn.GetComponentInChildren<Text>().text = string.Empty;
+
+        seq.Play();
 
         _nextBtn.gameObject.SetActive(false);
+        _lobbyBtn.gameObject.SetActive(false);
         StartCoroutine(SetActiveObject(_image.gameObject, false, isNext));
     }
 

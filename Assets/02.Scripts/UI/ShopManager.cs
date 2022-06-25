@@ -45,6 +45,7 @@ public class ShopManager : MonoBehaviour
     public void ShowPanel()
     {
         _image.transform.gameObject.SetActive(true);
+        _closeBtn.GetComponentInChildren<Text>().text = "Close";
 
         Sequence seq = DOTween.Sequence();
         seq.Append(_image.DOFade(1, _delay));
@@ -59,10 +60,11 @@ public class ShopManager : MonoBehaviour
         seq.Append(_image.DOFade(0, _delay));
         seq.Join(_closeBtn.image.DOFade(0, _delay));
 
-        seq.Play();
-
         _titleText.text = string.Empty;
         _contentsText.text = string.Empty;
+        _closeBtn.GetComponentInChildren<Text>().text = string.Empty;
+
+        seq.Play();
 
         StartCoroutine(SetActiveObject(_image.gameObject, false));
     }

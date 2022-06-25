@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         if (enemys.Count == 0)
         {
             _isEnd = true;
+            _velocity = Vector3.zero;
             return;
         }
     }
