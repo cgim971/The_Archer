@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Property")]
     [SerializeField] private PlayerSave _playerSave;
 
+    bool _isStart = false;
+
 
     void Start()
     {
@@ -45,14 +47,22 @@ public class PlayerMovement : MonoBehaviour
 
         _playerSave = GameManager.Instance._PLAYERSAVE;
 
-        _playerSave._HP = _playerSave._MAXHP;
+        StartCoroutine(StartTime());
+    }
 
-        //GameManager.Instance.SetAttack();
-        //GameManager.Instance.SetDefense();
+    IEnumerator StartTime()
+    {
+        for (int i = 3; i >=0; i--)
+        {
+            PlayerUI.instance.Count(i);
+            yield return new WaitForSeconds(1f);
+        }
+        _isStart = true;
     }
 
     void Update()
     {
+        if (!_isStart) return;
         if (_isDead) return;
 
         Move();
@@ -171,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
         _playerSave._HP -= (damage - (_playerSave._DEFENSE > 20 ? 19 : _playerSave._DEFENSE) / 20);
         _animatorType = AnimatorType.HIT;
         PlayAnimator();
-
+        PlayerUI.instance.UpdateUI();
         if (_playerSave._HP <= 0)
         {
             _animatorType = AnimatorType.DEATH;

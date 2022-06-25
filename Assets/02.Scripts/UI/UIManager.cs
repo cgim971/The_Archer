@@ -8,9 +8,21 @@ using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
 
+    [SerializeField] private Button _matchBtn;
+
+    private void Start()
+    {
+        _matchBtn.onClick.AddListener(() => MatchScene());
+    }
+    void MatchScene()
+    {
+        GameManager.Instance._PLAYERSAVE._HP = GameManager.Instance._PLAYERSAVE._MAXHP;
+        SceneManager.LoadScene("main");
+    }
+    
+    
     //public static UIManager instance;
 
-    //[SerializeField] private Button _matchBtn;
     //[SerializeField] private Image _image;
     //Button _imageBtn;
     //[SerializeField] private Text _text;
@@ -32,7 +44,6 @@ public class UIManager : MonoBehaviour
     //    _imageBtn.onClick.AddListener(() => EndText());
     //}
 
-    //void MatchScene() => SceneManager.LoadScene("main");
 
     //public void SetText(string text)
     //{

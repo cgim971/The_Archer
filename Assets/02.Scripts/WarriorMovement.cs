@@ -63,6 +63,12 @@ public class WarriorMovement : MonoBehaviour
         }
     }
 
+    bool _isStart = false;
+    void StartTime() {
+        _isStart = true;
+        StartCoroutine(RandomIndex());
+    }
+
     void Start()
     {
         _cameraTransform = Camera.main.transform;
@@ -75,11 +81,14 @@ public class WarriorMovement : MonoBehaviour
         _HP = 5f;
 
         _target = FindObjectOfType<PlayerMovement>().transform.parent.gameObject;
-        StartCoroutine(RandomIndex());
+
+        Invoke("StartTime", 3);
     }
 
     private void Update()
     {
+        if (!_isStart) return;
+
         if (_isDead) return;
 
         FindingTarget();
