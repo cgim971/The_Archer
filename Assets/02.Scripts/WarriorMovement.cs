@@ -62,9 +62,11 @@ public class WarriorMovement : MonoBehaviour
             }
         }
     }
+    public float _maxHp = 5;
 
     bool _isStart = false;
-    void StartTime() {
+    void StartTime()
+    {
         _isStart = true;
         StartCoroutine(RandomIndex());
     }
@@ -78,9 +80,10 @@ public class WarriorMovement : MonoBehaviour
         _leftFunchTime = _leftFunchClip.length;
         _rightFunchTime = _rightFunchClip.length;
 
-        _HP = 5f;
+        _HP = _maxHp;
 
         _target = FindObjectOfType<PlayerMovement>().transform.parent.gameObject;
+        PlayerUI.instance.EnemyUI(_maxHp, _HP);
 
         Invoke("StartTime", 3);
     }
@@ -121,16 +124,22 @@ public class WarriorMovement : MonoBehaviour
         }
     }
 
+    bool _isCheck = false;
+    void CheckWall2() => _isCheck = false;
     // 수정 필요
     void CheckWall()
     {
+        if (_isCheck) return;
         Ray ray1 = new Ray(transform.position + new Vector3(0.5f, 0f, 0f), transform.forward + new Vector3(0.5f, 0f, 0f));
         Ray ray2 = new Ray(transform.position - new Vector3(0.5f, 0f, 0f), transform.forward - new Vector3(0.5f, 0f, 0f));
 
         if (Physics.Raycast(ray1, 1.1f, _obstacleMask) || Physics.Raycast(ray2, 1.1f, _obstacleMask))
         {
+            _isCheck = true;
             pos.x *= -1;
             pos.z *= -1;
+
+            Invoke("CheckWall2", 1);
         }
     }
 
@@ -281,6 +290,7 @@ public class WarriorMovement : MonoBehaviour
         if (_HP <= 0) return;
 
         _HP -= damage;
+        PlayerUI.instance.EnemyUI(_maxHp, _HP);
         _animatorType = AnimatorType.HIT;
         PlayAnimator();
 

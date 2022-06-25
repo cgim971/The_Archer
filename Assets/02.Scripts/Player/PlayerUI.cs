@@ -37,4 +37,16 @@ public class PlayerUI : MonoBehaviour
     {
         _stageText.text = $"Stage {stage}";
     }
+
+    // enemy
+
+    [SerializeField] private Slider _enemyHealthSlider;
+
+    public void EnemyUI(float maxHp, float hp)
+    {
+        _enemyHealthSlider.maxValue = maxHp;
+        _enemyHealthSlider.value = hp;
+    }
+
+
 }

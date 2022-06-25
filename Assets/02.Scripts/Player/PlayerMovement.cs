@@ -33,7 +33,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerSave _playerSave;
 
     bool _isStart = false;
+    bool _isEnd = false;
 
+    [SerializeField] List<GameObject> enemys;
+    void Attack()
+    {
+
+
+        if (_velocity != Vector3.zero) return;
+        GameObject target = enemys[0];
+        if (target == null) return;
+
+        foreach (GameObject enemy in enemys)
+        {
+            float distance = (enemy.transform.position - transform.position).magnitude;
+
+            if (distance < (target.transform.position - transform.position).magnitude)
+            {
+                target = enemy;
+            }
+        }
+
+        target.transform.position = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+        transform.LookAt(target.transform.position);
+
+        _animatorType = AnimatorType.SHOT;
+    }
 
     void Start()
     {
@@ -52,21 +77,40 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator StartTime()
     {
-        for (int i = 3; i >=0; i--)
+        for (int i = 3; i > 0; i--)
         {
             PlayerUI.instance.Count(i);
             yield return new WaitForSeconds(1f);
         }
+        PlayerUI.instance.Count(0);
         _isStart = true;
+    }
+
+    void ClearEnemy()
+    {
+        int i = 0;
+        for (i = 0; i < enemys.Count; i++)
+        {
+            if (enemys[i] == null) enemys.RemoveAt(i);
+            i = 0;
+        }
+
+        if (enemys.Count == 0)
+        {
+            _isEnd = true;
+            return;
+        }
     }
 
     void Update()
     {
+        ClearEnemy();
+
         if (!_isStart) return;
         if (_isDead) return;
+        if (_isEnd) return;
 
         Move();
-
         Attack();
         PlayAnimator();
 
@@ -111,11 +155,7 @@ public class PlayerMovement : MonoBehaviour
         _velocity = index;
     }
 
-    void Attack()
-    {
-        if (!Input.GetMouseButtonDown(0)) return;
-        _animatorType = AnimatorType.SHOT;
-    }
+
 
     public void EndHit()
     {

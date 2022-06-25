@@ -10,7 +10,7 @@ public class PlayerJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
     float _joystickRadius;
     bool _isTouch = false;
-    Vector3 _vecMove;
+    Vector3 _vecMove = Vector3.zero;
 
     public Vector3 VecMove
     {
