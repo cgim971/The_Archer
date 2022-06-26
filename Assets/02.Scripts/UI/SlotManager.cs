@@ -8,6 +8,8 @@ public class SlotManager : MonoBehaviour
 
     ItemSave _itemSave;
     Button _useBtn;
+    Image _image;
+
     [SerializeField] private InventoryManager _inventory;
     public InventoryManager INVENTORY { set => _inventory = value; }
 

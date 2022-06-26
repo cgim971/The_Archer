@@ -25,20 +25,18 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] ItemSave _itemSave;
 
+    int count = 0;
+
     private void Start()
     {
         _itemList = GameManager.Instance._ITEMLIST;
+
 
         for (int index = 0; index < 30; index++)
         {
             GameObject newSlot = Instantiate(_slots, _inventory);
             newSlot.GetComponent<SlotManager>().INVENTORY = this;
-            foreach (ItemSave itemSave in _itemList._ITEMSAVES)
-            {
-                if (_itemList._ITEMSAVES[index]._HASITEM)
-                    newSlot.GetComponent<SlotManager>().SetItemSave(_itemList._ITEMSAVES[index]);
-            }
-
+            newSlot.GetComponent<SlotManager>().SetItemSave(GetItemSave());
             _slotList.Add(newSlot);
         }
 
@@ -48,9 +46,17 @@ public class InventoryManager : MonoBehaviour
         OffUI();
     }
 
-    private void Update()
+    public ItemSave GetItemSave()
     {
+        for (int i = count; i < _itemList._ITEMSAVES.Count; i++, count++)
+        {
+            if (_itemList._ITEMSAVES[i]._HASITEM)
+            {
+                return _itemList._ITEMSAVES[i];
+            }
+        }
 
+        return null;
     }
 
     public void OnUI()
