@@ -29,8 +29,9 @@ public class ItemList : ScriptableObject
         int itemTier = Random.Range(0, 100);
         if (itemTier < 80) itemTier = 1;
         else if (itemTier < 92) itemTier = 2;
-        else if (itemTier < 99) itemTier = 3;
-        else itemTier = 4;
+        else if (itemTier < 96) itemTier = 3;
+        else if (itemTier < 99) itemTier = 4;
+        else itemTier = 5;
 
         foreach (ItemSave item in _ITEMSAVES)
         {

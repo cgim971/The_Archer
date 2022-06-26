@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: item_3
   m_EditorClassIdentifier: 
   _itemNumber: 3
-  _itemName: "\uD754\uD55C \uBAA8\uC790"
-  _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBAA8\uC790\uC774\uB2E4."
+  _itemName: "\uD754\uD55C \uD558\uC758"
+  _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uD558\uC758\uC774\uB2E4."
   _itemTier: 1
-  _itemType: 1
+  _itemType: 4
   _hasItem: 0
