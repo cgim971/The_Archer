@@ -870,14 +870,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 776290652961023467, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312694240275320062, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4385110652317991176, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -930,10 +922,6 @@ PrefabInstance:
       propertyPath: enemys.Array.data[0]
       value: 
       objectReference: {fileID: 1390466797}
-    - target: {fileID: 8233463174158201259, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
 --- !u!4 &1617531005 stripped
