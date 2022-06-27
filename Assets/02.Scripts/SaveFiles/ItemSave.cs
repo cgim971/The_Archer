@@ -18,6 +18,7 @@ public class ItemSave : ScriptableObject
     [SerializeField] private bool _hasItem;
     [SerializeField] private bool _equipmentItem;
     [SerializeField] private Sprite _itemSprite;
+    [SerializeField] private float _effect;
 
     public enum ItemTier { NONE = 0, BASE = 1, RARE = 2, EPIC = 3, LUXURY = 4, LEGEND = 5 }
     public enum ItemType { NONE = 0, HELMET = 1, WEAPON = 2, CHEST = 3, PANTS = 4, SHOULDER = 5, BOOTS = 6 }
@@ -38,4 +39,5 @@ public class ItemSave : ScriptableObject
         set => _equipmentItem = value;
     }
     public Sprite _ITEMSPRITE { get => _itemSprite; }
+    public float _EFFECT { get => _effect; }
 }

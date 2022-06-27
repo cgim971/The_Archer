@@ -53,6 +53,7 @@ public class InventoryManager : MonoBehaviour
         _btns.transform.Find("cancelBtn").GetComponent<Button>().onClick.AddListener(() => Cancel());
 
         EquipmentItem();
+        GameManager.Instance.ItemEffect();
         OffUI();
     }
 
@@ -71,7 +72,6 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemSave._EQUIPMENTITEM)
             {
-                Debug.Log(_skinParts[(int)itemSave._ITEMTYPE - 1].gameObject);
                 _skinParts[(int)itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
 
                 _parts[(int)itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(itemSave);
@@ -168,6 +168,16 @@ public class InventoryManager : MonoBehaviour
     public void Use()
     {
         EquipmentSlot equipmentSlot = _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>();
+
+        foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+        {
+            if (_itemSave._ITEMTYPE == itemSave._ITEMTYPE)
+            {
+                Unquip(itemSave);
+            }
+        }
+
+
         if (equipmentSlot.ITEMSAVE != null)
         {
             equipmentSlot.ITEMSAVE._EQUIPMENTITEM = true;
@@ -177,6 +187,8 @@ public class InventoryManager : MonoBehaviour
 
         equipmentSlot.SetItem(_itemSave);
 
+        
+        GameManager.Instance.ItemEffect();
 
         OffUI();
     }
@@ -187,7 +199,18 @@ public class InventoryManager : MonoBehaviour
         _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(null);
         _itemSave._EQUIPMENTITEM = false;
 
+        GameManager.Instance.ItemEffect();
+
         OffUI();
+    }
+
+    public void Unquip(ItemSave itemSave)
+    {
+        _skinParts[(int)itemSave._ITEMTYPE - 1].gameObject.SetActive(false);
+        _parts[(int)itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(null);
+        itemSave._EQUIPMENTITEM = false;
+
+        GameManager.Instance.ItemEffect();
     }
 
     public void Cancel()

@@ -17,6 +17,7 @@ MonoBehaviour:
   _itemInform: "\uC88B\uC740 \uD5EC\uBA67\uC774\uB2E4."
   _itemTier: 3
   _itemType: 1
-  _hasItem: 1
-  _equipmentItem: 1
+  _hasItem: 0
+  _equipmentItem: 0
   _itemSprite: {fileID: 21300000, guid: 0f9d07eb2419f5540acf6093070a9e0c, type: 3}
+  _effect: 3

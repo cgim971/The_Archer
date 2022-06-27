@@ -11,8 +11,13 @@ public class PlayerSave : ScriptableObject
 
     [SerializeField] private float _hp;
     [SerializeField] private float _maxHp = 30f;
+
     [SerializeField] private float _attack;
     [SerializeField] private float _defense = 0;
+    [SerializeField] private float _speed = 5;
+
+
+
     [SerializeField] private bool[] _isItemEquip; // 아이템 장착 여부
     //HELMET, WEAPON, CHEST, PANTS, SHOULDER, BOOTS
     [SerializeField] private string[] _itemName; //장착한 아이템 이름
@@ -28,9 +33,16 @@ public class PlayerSave : ScriptableObject
         get => _hp;
         set => _hp = value;
     }
-    public float _MAXHP { get => _maxHp; }
+
+
+    public float _MAXHP { get => _maxHp; set => _maxHp = value; }
     public float _ATTACK { get => _attack; set => _attack = value; }
     public float _DEFENSE { get => _defense; set => _defense = value; }
+    public float _SPEED { get => _speed; set => _speed = value; }
+
+
+
+
 
     public void SetItemEquip(int index, bool isItemEquip)
     {
@@ -64,5 +76,5 @@ public class PlayerSave : ScriptableObject
         return _itemName[index];
     }
 
-    
+
 }

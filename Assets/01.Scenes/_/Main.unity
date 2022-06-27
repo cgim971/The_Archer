@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 108927204}
   - component: {fileID: 108927203}
   m_Layer: 7
-  m_Name: Cube (1)
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,8 +702,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4498498496580104882, guid: a7981bb3dd2a9524d83363186a0b8576, type: 3}
-      propertyPath: _maxHp
-      value: 10
+      propertyPath: ViewAngle
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 4553613820981136725, guid: a7981bb3dd2a9524d83363186a0b8576, type: 3}
       propertyPath: m_RootOrder
@@ -753,12 +753,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
-    - target: {fileID: 4555685856915256137, guid: a7981bb3dd2a9524d83363186a0b8576, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4498498496580104883, guid: a7981bb3dd2a9524d83363186a0b8576, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7981bb3dd2a9524d83363186a0b8576, type: 3}
 --- !u!1 &1111915905
 GameObject:
@@ -773,7 +768,7 @@ GameObject:
   - component: {fileID: 1111915907}
   - component: {fileID: 1111915906}
   m_Layer: 7
-  m_Name: Cube (3)
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +941,7 @@ GameObject:
   - component: {fileID: 1685361181}
   - component: {fileID: 1685361180}
   m_Layer: 7
-  m_Name: Cube
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1038,7 @@ GameObject:
   - component: {fileID: 2036360142}
   - component: {fileID: 2036360141}
   m_Layer: 7
-  m_Name: Cube (2)
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

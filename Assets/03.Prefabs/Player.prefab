@@ -5864,6 +5864,13 @@ MonoBehaviour:
   _characterController: {fileID: 4385110652317991179}
   _currentSpeed: 5
   _rotateDamp: 5
+  _skinParts:
+  - {fileID: 8379705903813868475}
+  - {fileID: 729119954807104624}
+  - {fileID: 155078662857920856}
+  - {fileID: 3182740373362055266}
+  - {fileID: 5165501136333949014}
+  - {fileID: 5477895235142264675}
   _animator: {fileID: 5497234385053719109}
   _animatorType: 0
   _shotClip: {fileID: 7400000, guid: 2fb73324a35e4f848a526c3c9ea03c24, type: 2}

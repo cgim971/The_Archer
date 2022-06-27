@@ -20,3 +20,4 @@ MonoBehaviour:
   _hasItem: 0
   _equipmentItem: 0
   _itemSprite: {fileID: 21300000, guid: 401d9e5c83a94cc49a29d36d661009e7, type: 3}
+  _effect: 3

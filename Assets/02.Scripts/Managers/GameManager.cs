@@ -17,11 +17,42 @@ public class GameManager : SMonoBehaviour<GameManager>
 
         _playerSave = Resources.Load<PlayerSave>("Saves/Player/PlayerSave");
         _itemList = Resources.Load<ItemList>("Saves/Lists/ItemList");
+    }
 
-        //for (int index = 0; index < _itemList._ITEMTYPESAVES.Count; index++)
-        //{
-        //    SetHasItemCount(index);
-        //}
+    public void ItemEffect()
+    {
+        _playerSave._MAXHP = 10;
+        _playerSave._ATTACK = 1;
+        _playerSave._DEFENSE = 0;
+        _playerSave._SPEED = 5;
+
+
+        foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+        {
+            if (!itemSave._EQUIPMENTITEM) continue;
+
+            switch (itemSave._ITEMTYPE)
+            {
+                case ItemSave.ItemType.HELMET:
+                    _playerSave._DEFENSE += itemSave._EFFECT;
+                    break;
+                case ItemSave.ItemType.WEAPON:
+                    _playerSave._ATTACK += itemSave._EFFECT;
+                    break;
+                case ItemSave.ItemType.CHEST:
+                    _playerSave._MAXHP += itemSave._EFFECT;
+                    break;
+                case ItemSave.ItemType.PANTS:
+                    _playerSave._MAXHP += itemSave._EFFECT;
+                    break;
+                case ItemSave.ItemType.SHOULDER:
+                    _playerSave._DEFENSE += itemSave._EFFECT;
+                    break;
+                case ItemSave.ItemType.BOOTS:
+                    _playerSave._SPEED += itemSave._EFFECT;
+                    break;
+            }
+        }
     }
 
     //void SetHasItemCount(int index)

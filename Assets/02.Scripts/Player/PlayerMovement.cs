@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     bool _isDead = false;
     PlayerJoystick _joystick;
 
+    [SerializeField] private Renderer[] _skinParts;
+
     [Header("Animator Property")]
     [SerializeField] private Animator _animator = null;
     [SerializeField] private AnimatorType _animatorType = AnimatorType.NONE;
@@ -38,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] List<GameObject> enemys;
     void Attack()
     {
-
-
         if (_velocity != Vector3.zero) return;
         GameObject target = enemys[0];
         if (target == null) return;
@@ -72,7 +72,27 @@ public class PlayerMovement : MonoBehaviour
 
         _playerSave = GameManager.Instance._PLAYERSAVE;
 
+        Equip();
+
         StartCoroutine(StartTime());
+    }
+
+    void Equip()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (i == 1) continue;
+            _skinParts[i].gameObject.SetActive(false);
+        }
+
+        foreach (ItemSave itemSave in GameManager.Instance._ITEMLIST._ITEMSAVES)
+        {
+            if (itemSave._EQUIPMENTITEM)
+            {
+                _skinParts[(int)itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
+                _skinParts[(int)itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = GameManager.Instance._ITEMLIST.Materials((int)itemSave._ITEMTYPE, (int)itemSave._ITEMTIER - 1);
+            }
+        }
     }
 
     IEnumerator StartTime()
@@ -147,6 +167,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (index != Vector3.zero)
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(index), _rotateDamp * Time.deltaTime);
+
+        _currentSpeed = _playerSave._SPEED;
 
         index *= _currentSpeed;
 
@@ -239,14 +261,18 @@ public class PlayerMovement : MonoBehaviour
         {
             var labelStyle = new GUIStyle();
             labelStyle.fontSize = 50;
-            labelStyle.normal.textColor = Color.white;
+            labelStyle.normal.textColor = Color.black;
             GUILayout.Label("플레이어 이동 : WASD, 플레이어 공격 : 마우스 좌클릭", labelStyle);
 
             GUILayout.Label("HP : " + _playerSave._HP.ToString(), labelStyle);
 
+            GUILayout.Label("MAXHP : " + _playerSave._MAXHP.ToString(), labelStyle);
+
             GUILayout.Label("ATTACK : " + _playerSave._ATTACK.ToString(), labelStyle);
 
             GUILayout.Label("DEFENSE : " + _playerSave._DEFENSE.ToString(), labelStyle);
+
+            GUILayout.Label("SPEED : " + _playerSave._SPEED.ToString(), labelStyle);
         }
     }
 }

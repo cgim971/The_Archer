@@ -264,7 +264,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4553613820981136725}
   - component: {fileID: 4498498496580104885}
-  - component: {fileID: 4498498496580104883}
   - component: {fileID: 4498498496580104882}
   - component: {fileID: 4498498496580104880}
   m_Layer: 9
@@ -311,21 +310,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4498498496580104883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555685856915256137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d0fecb5f58235498fa313e4841b14c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefix: 
-  backColor: {r: 0, g: 1, b: 1, a: 1}
-  frontColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &4498498496580104882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugMode: 1
-  ViewAngle: 100
+  ViewAngle: 180
   ViewRadius: 20
   _targetMask:
     serializedVersion: 2
@@ -363,6 +347,7 @@ MonoBehaviour:
   - {fileID: 4557607676286402406}
   _hp: 10
   _attack: 3
+  _maxHp: 10
 --- !u!143 &4498498496580104880
 CharacterController:
   m_ObjectHideFlags: 0
