@@ -19,6 +19,8 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private float _delay;
 
+    [SerializeField] private int _money;
+
     private void Awake()
     {
         instance = this;
@@ -37,9 +39,9 @@ public class StageManager : MonoBehaviour
         ShowPanel(true);
 
         _titleText.text = "VICTORY";
-        _contentsText.text = "";
+        _contentsText.text = $"{_money}¿ø È¹µæ";
 
-        //GameManager.Instance._PLAYERSAVE._MONEY += ;
+        GameManager.Instance._PLAYERSAVE._MONEY += _money ;
     }
 
     public void Defeat()
@@ -47,9 +49,8 @@ public class StageManager : MonoBehaviour
         ShowPanel(false);
 
         _titleText.text = "DEFEAT";
-        _contentsText.text = "";
-
-        //GameManager.Instance._PLAYERSAVE._MONEY += ;
+        _contentsText.text = $"{_money / 3}¿øÀ» È¹µæÇÏ¼Ì½À´Ï´Ù.";
+        GameManager.Instance._PLAYERSAVE._MONEY += _money/3;
     }
 
     public void ShowPanel(bool isVictory)

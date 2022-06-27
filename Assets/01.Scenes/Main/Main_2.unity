@@ -998,6 +998,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1854014115669671451, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4385110652317991176, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1070,6 +1074,10 @@ PrefabInstance:
       propertyPath: enemys.Array.data[4]
       value: 
       objectReference: {fileID: 1816395208}
+    - target: {fileID: 5773667148463506254, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8233463174158201259, guid: cad675aced9a59a4cbcb8692394e449e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1438,6 +1446,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 445628127}
     m_Modifications:
+    - target: {fileID: 3159737176896795149, guid: 50db84234a6e22149b9d1fb058ef9633, type: 3}
+      propertyPath: _money
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3159737176896795150, guid: 50db84234a6e22149b9d1fb058ef9633, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

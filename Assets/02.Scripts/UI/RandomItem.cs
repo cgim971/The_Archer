@@ -14,7 +14,14 @@ public class RandomItem : MonoBehaviour
     {
         _purchaseBtn.onClick.AddListener(() => ItemPurchase());
         _nameText.text = "장비 뽑기";
+        GetCost();
         _costText.text = $"{_cost}원";
+    }
+
+    void GetCost()
+    {
+        int itemCount = GameManager.Instance._ITEMLIST.GetItemCount() + 1;
+        _cost = (int)(5 + (itemCount - 1) * 10);
     }
 
     void ItemPurchase()
@@ -28,5 +35,8 @@ public class RandomItem : MonoBehaviour
         GameManager.Instance._ITEMLIST.GetItem();
 
         InventoryManager.instance.Refresh();
+
+        GetCost();
+        _costText.text = $"{_cost}원";
     }
 }

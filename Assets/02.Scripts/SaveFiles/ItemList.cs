@@ -8,18 +8,22 @@ public class ItemList : ScriptableObject
     [SerializeField] List<ItemSave> _itemSaves = new List<ItemSave>();
     [SerializeField] private Material[] _materialsArmor;
     [SerializeField] private Material[] _materialsBow;
-
     public Material Materials(int type, int index)
     {
         if (type != 2)
             return _materialsArmor[index];
-        else 
+        else
             return _materialsBow[index];
     }
 
     public List<ItemSave> _ITEMSAVES { get => _itemSaves; }
     int _itemCount = 0;
 
+    public int GetItemCount()
+    {
+        HasItem();
+        return _itemCount;
+    }
     public void HasItem()
     {
         _itemCount = 0;

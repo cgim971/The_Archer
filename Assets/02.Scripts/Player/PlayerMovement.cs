@@ -110,6 +110,9 @@ public class PlayerMovement : MonoBehaviour
 
     void ClearEnemy()
     {
+
+        if (_isEnd) return; 
+
         int i = 0;
         for (i = 0; i < enemys.Count; i++)
         {

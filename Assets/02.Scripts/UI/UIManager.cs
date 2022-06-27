@@ -12,12 +12,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _settingBtn;
     [SerializeField] private GameObject _panel;
     [SerializeField] private Button _exitBtn;
+
+    [SerializeField] Text _moneyText;
     private void Start()
     {
         _matchBtn.onClick.AddListener(() => MatchScene());
         _settingBtn.onClick.AddListener(() => OnSetting());
         _exitBtn.onClick.AddListener(() => OffSetting());
+
     }
+
+    private void Update()
+    {
+        SetMoneyText();
+    }
+
     void MatchScene()
     {
         GameManager.Instance._PLAYERSAVE._HP = GameManager.Instance._PLAYERSAVE._MAXHP;
@@ -29,11 +38,14 @@ public class UIManager : MonoBehaviour
     {
         _panel.SetActive(true);
     }
-    
+
     public void OffSetting()
     {
         _panel.SetActive(false);
     }
 
-
+    public void SetMoneyText()
+    {
+        _moneyText.text = $"MONEY : {GameManager.Instance._PLAYERSAVE._MONEY}";
+    }
 }
