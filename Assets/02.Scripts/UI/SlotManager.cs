@@ -8,7 +8,7 @@ public class SlotManager : MonoBehaviour
 
     ItemSave _itemSave;
     Button _useBtn;
-    Image _image;
+    [SerializeField] Image _image;
 
     [SerializeField] private InventoryManager _inventory;
     public InventoryManager INVENTORY { set => _inventory = value; }
@@ -16,6 +16,8 @@ public class SlotManager : MonoBehaviour
     public void SetItemSave(ItemSave itemSave)
     {
         _itemSave = itemSave;
+        if (itemSave != null)
+            _image.sprite = itemSave._ITEMSPRITE;
     }
 
 

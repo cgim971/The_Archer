@@ -16,6 +16,7 @@ public class ItemSave : ScriptableObject
     [SerializeField] ItemType _itemType;
     // 아이템을 가지고 있는지
     [SerializeField] private bool _hasItem;
+    [SerializeField] private bool _equipmentItem;
     [SerializeField] private Sprite _itemSprite;
 
     public enum ItemTier { NONE = 0, BASE = 1, RARE = 2, EPIC = 3, LUXURY = 4, LEGEND = 5 }
@@ -30,6 +31,11 @@ public class ItemSave : ScriptableObject
     {
         get => _hasItem;
         set => _hasItem = value;
+    }
+    public bool _EQUIPMENTITEM
+    {
+        get => _equipmentItem;
+        set => _equipmentItem = value;
     }
     public Sprite _ITEMSPRITE { get => _itemSprite; }
 }

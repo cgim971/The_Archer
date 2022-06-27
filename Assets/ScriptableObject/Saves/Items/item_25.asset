@@ -19,3 +19,5 @@ MonoBehaviour:
   _itemTier: 5
   _itemType: 2
   _hasItem: 0
+  _equipmentItem: 0
+  _itemSprite: {fileID: 21300000, guid: 6238a4c7ecb33674aa2c4c3be8d8f6a8, type: 3}
