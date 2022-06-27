@@ -10,23 +10,29 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Button _matchBtn;
     [SerializeField] private Button _settingBtn;
-
+    [SerializeField] private GameObject _panel;
+    [SerializeField] private Button _exitBtn;
     private void Start()
     {
         _matchBtn.onClick.AddListener(() => MatchScene());
         _settingBtn.onClick.AddListener(() => OnSetting());
+        _exitBtn.onClick.AddListener(() => OffSetting());
     }
     void MatchScene()
     {
         GameManager.Instance._PLAYERSAVE._HP = GameManager.Instance._PLAYERSAVE._MAXHP;
         SceneManager.LoadScene("main");
     }
-    
+
     void OnSetting()
     {
-
+        _panel.SetActive(true);
     }
     
-    
+    public void OffSetting()
+    {
+        _panel.SetActive(false);
+    }
+
 
 }

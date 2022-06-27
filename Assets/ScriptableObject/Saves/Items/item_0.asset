@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemNumber: 0
   _itemName: "\uD754\uD55C \uBAA8\uC790"
-  _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBAA8\uC790\uC774\uB2E4."
+  _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBAA8\uC790\uC774\uB2E4. \uC57D\uAC04\uC758
+    \uBC29\uC5B4\uB825\uC774 \uC0C1\uC2B9\uD560\uC218\uB3C4~"
   _itemTier: 1
   _itemType: 1
   _hasItem: 0

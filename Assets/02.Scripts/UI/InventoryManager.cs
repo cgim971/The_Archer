@@ -177,20 +177,18 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+        equipmentSlot.SetItem(_itemSave);
+        
+        GameManager.Instance.ItemEffect();
 
+        OffUI();
+
+        _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
         if (equipmentSlot.ITEMSAVE != null)
         {
             equipmentSlot.ITEMSAVE._EQUIPMENTITEM = true;
             _skinParts[(int)_itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = _itemList.Materials((int)_itemSave._ITEMTYPE, (int)_itemSave._ITEMTIER - 1);
         }
-        _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
-
-        equipmentSlot.SetItem(_itemSave);
-
-        
-        GameManager.Instance.ItemEffect();
-
-        OffUI();
     }
 
     public void Unquip()
