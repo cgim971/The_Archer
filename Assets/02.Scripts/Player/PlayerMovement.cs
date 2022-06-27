@@ -37,11 +37,13 @@ public class PlayerMovement : MonoBehaviour
     bool _isStart = false;
     bool _isEnd = false;
 
+    GameObject target = null;
+
     [SerializeField] List<GameObject> enemys;
     void Attack()
     {
         if (_velocity != Vector3.zero) return;
-        GameObject target = enemys[0];
+        target = enemys[0];
         if (target == null) return;
 
         foreach (GameObject enemy in enemys)
@@ -111,14 +113,18 @@ public class PlayerMovement : MonoBehaviour
         int i = 0;
         for (i = 0; i < enemys.Count; i++)
         {
-            if (enemys[i] == null) enemys.RemoveAt(i);
-            i = 0;
+            if (enemys[i] == null)
+            {
+                enemys.RemoveAt(i);
+                i = 0;
+            }
         }
 
         if (enemys.Count == 0)
         {
             _isEnd = true;
             _velocity = Vector3.zero;
+            StageManager.instance.Victory();
             return;
         }
     }

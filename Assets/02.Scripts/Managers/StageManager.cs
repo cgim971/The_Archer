@@ -17,7 +17,6 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Button _nextBtn;
     [SerializeField] private Button _lobbyBtn;
 
-    [SerializeField] private string _nextScene;
     [SerializeField] private float _delay;
 
     private void Awake()
@@ -61,7 +60,14 @@ public class StageManager : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
         seq.Append(_image.DOFade(1, _delay));
+
+        if (GameManager.Instance.STAGENUMBER == 4)
+        {
+            _nextBtn.gameObject.SetActive(false);
+        }
+
         if (isVictory) seq.Join(_nextBtn.image.DOFade(1, _delay));
+
         seq.Join(_lobbyBtn.image.DOFade(1, _delay));
 
         _nextBtn.GetComponentInChildren<Text>().text = "Next Stage";
@@ -119,12 +125,14 @@ public class StageManager : MonoBehaviour
 
     public void NextStage()
     {
-        SceneManager.LoadScene(_nextScene);
+        GameManager.Instance.STAGENUMBER += 1;
+        SceneManager.LoadScene(GameManager.Instance.STAGENUMBER);
     }
 
     public void Lobby()
     {
-        SceneManager.LoadScene("Lobby");
+        GameManager.Instance.STAGENUMBER = 0;
+        SceneManager.LoadScene(GameManager.Instance.STAGENUMBER);
     }
 
     //[SerializeField] private List<GameObject> warriorMovement;

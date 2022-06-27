@@ -10,6 +10,12 @@ public class GameManager : SMonoBehaviour<GameManager>
     public PlayerSave _PLAYERSAVE { get => _playerSave; }
     public ItemList _ITEMLIST { get => _itemList; }
 
+    private int _stageNumber;
+    public int STAGENUMBER
+    {
+        get => _stageNumber;
+        set => _stageNumber = value;
+    }
 
     protected override void Awake()
     {
@@ -17,6 +23,8 @@ public class GameManager : SMonoBehaviour<GameManager>
 
         _playerSave = Resources.Load<PlayerSave>("Saves/Player/PlayerSave");
         _itemList = Resources.Load<ItemList>("Saves/Lists/ItemList");
+
+        STAGENUMBER = 0;
     }
 
     public void ItemEffect()

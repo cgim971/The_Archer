@@ -21,7 +21,8 @@ public class UIManager : MonoBehaviour
     void MatchScene()
     {
         GameManager.Instance._PLAYERSAVE._HP = GameManager.Instance._PLAYERSAVE._MAXHP;
-        SceneManager.LoadScene("main");
+        GameManager.Instance.STAGENUMBER += 1;
+        SceneManager.LoadScene(GameManager.Instance.STAGENUMBER);
     }
 
     void OnSetting()

@@ -19,6 +19,8 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         _playerSave = GameManager.Instance._PLAYERSAVE;
+        _stageText.text = $"Stage {GameManager.Instance.STAGENUMBER}";
+
         UpdateUI();
     }
 
@@ -33,15 +35,10 @@ public class PlayerUI : MonoBehaviour
         if (count == 0) _countText.gameObject.SetActive(false);
         _countText.text = count.ToString();
     }
-    public void State(int stage)
-    {
-        _stageText.text = $"Stage {stage}";
-    }
 
     // enemy
 
     [SerializeField] private Slider _enemyHealthSlider;
-
     public void EnemyUI(float maxHp, float hp)
     {
         _enemyHealthSlider.maxValue = maxHp;
