@@ -17,6 +17,11 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Button _nextBtn;
     [SerializeField] private Button _lobbyBtn;
 
+    [SerializeField] private Button _pauseBtn;
+    [SerializeField] private Image _pausePanel;
+    [SerializeField] private Button _continueGameBtn;
+    [SerializeField] private Button _endGameBtn;
+
     [SerializeField] private float _delay;
 
     [SerializeField] private int _money;
@@ -32,6 +37,22 @@ public class StageManager : MonoBehaviour
 
         _nextBtn.onClick.AddListener(() => HidePanel(true));
         _lobbyBtn.onClick.AddListener(() => HidePanel(false));
+        _pauseBtn.onClick.AddListener(() => OnSetting());
+        _continueGameBtn.onClick.AddListener(() => OffSetting());
+        _endGameBtn.onClick.AddListener(() => Application.Quit());
+
+        OffSetting();
+    }
+
+    public void OnSetting()
+    {
+        Time.timeScale = 0;
+        _pausePanel.gameObject.SetActive(true);
+    }
+    public void OffSetting()
+    {
+        Time.timeScale = 1;
+        _pausePanel.gameObject.SetActive(false);
     }
 
     public void Victory()
@@ -41,7 +62,7 @@ public class StageManager : MonoBehaviour
         _titleText.text = "VICTORY";
         _contentsText.text = $"{_money}¿ø È¹µæ";
 
-        GameManager.Instance._PLAYERSAVE._MONEY += _money ;
+        GameManager.Instance._PLAYERSAVE._MONEY += _money;
     }
 
     public void Defeat()
@@ -50,7 +71,7 @@ public class StageManager : MonoBehaviour
 
         _titleText.text = "DEFEAT";
         _contentsText.text = $"{_money / 3}¿øÀ» È¹µæÇÏ¼Ì½À´Ï´Ù.";
-        GameManager.Instance._PLAYERSAVE._MONEY += _money/3;
+        GameManager.Instance._PLAYERSAVE._MONEY += _money / 3;
     }
 
     public void ShowPanel(bool isVictory)

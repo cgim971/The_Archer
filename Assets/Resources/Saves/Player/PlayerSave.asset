@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5073ad26ae92c974ab482d30e5a88a72, type: 3}
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
-  _money: 5
-  _hp: 10
+  _money: 0
+  _hp: 6
   _maxHp: 10
   _attack: 1
   _defense: 0
