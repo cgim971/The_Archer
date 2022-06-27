@@ -43,3 +43,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76d466acc60ae864887a8e0ff75660e3, type: 2}
   - {fileID: 11400000, guid: 8c6d1dc0851aab749ad1716c39114596, type: 2}
   - {fileID: 11400000, guid: beb2b059a7249f542b7bba2522aa941a, type: 2}
+  _materialsArmor:
+  - {fileID: 2100000, guid: f8b4be97010f11944b95b46db6f28eae, type: 2}
+  - {fileID: 2100000, guid: 27dd9685e7bdbea4b8dcbff674fde1c4, type: 2}
+  - {fileID: 2100000, guid: 86ed6e2e59520604f9a89250f87c5da2, type: 2}
+  - {fileID: 2100000, guid: e5546db452fe51f42b5e2eb0e342ebef, type: 2}
+  - {fileID: 2100000, guid: ad4538cb9b342ba4a88a8d19094a88eb, type: 2}
+  _materialsBow:
+  - {fileID: 2100000, guid: 7a7990e5040d0e34a82643e75a298b9b, type: 2}
+  - {fileID: 2100000, guid: 66b528898bf04b04580f42a0338eb5b7, type: 2}
+  - {fileID: 2100000, guid: 1e4ffd2f00f7e2849b17a863929396d8, type: 2}
+  - {fileID: 2100000, guid: 67f4e12710f692e4ca89820e8e367a16, type: 2}
+  - {fileID: 2100000, guid: 3642e380350a63a4e84ed9705a06aa44, type: 2}

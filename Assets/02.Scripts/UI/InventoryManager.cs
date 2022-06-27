@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private Transform _player;
     [SerializeField] private Transform[] _parts;
+    [SerializeField] private Renderer[] _skinParts;
     [SerializeField] private Transform _inventory;
 
     [SerializeField] private GameObject _slots;
@@ -46,13 +47,14 @@ public class InventoryManager : MonoBehaviour
         }
 
         _btns.transform.Find("useBtn").GetComponent<Button>().onClick.AddListener(() => Use());
+        _btns.transform.Find("unquipBtn").GetComponent<Button>().onClick.AddListener(() => Unquip());
         _btns.transform.Find("cancelBtn").GetComponent<Button>().onClick.AddListener(() => Cancel());
 
         EquipmentItem();
         OffUI();
     }
 
-    void Refresh()
+    public void Refresh()
     {
         count = 0;
         for (int i = 0; i < 30; i++)
@@ -67,7 +69,12 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemSave._EQUIPMENTITEM)
             {
-                _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(_itemSave);
+                Debug.Log(_skinParts[(int)itemSave._ITEMTYPE - 1].gameObject);
+                _skinParts[(int)itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
+
+                _parts[(int)itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(itemSave);
+
+                _skinParts[(int)itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = _itemList.Materials((int)itemSave._ITEMTYPE, (int)itemSave._ITEMTIER - 1);
             }
         }
     }
@@ -151,18 +158,27 @@ public class InventoryManager : MonoBehaviour
     {
         EquipmentSlot equipmentSlot = _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>();
         if (equipmentSlot.ITEMSAVE != null)
+        {
             equipmentSlot.ITEMSAVE._EQUIPMENTITEM = false;
+            _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
+            _skinParts[(int)_itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = _itemList.Materials((int)_itemSave._ITEMTYPE, (int)_itemSave._ITEMTIER - 1);
 
+        }
         equipmentSlot.SetItem(_itemSave);
 
 
         OffUI();
     }
 
+    public void Unquip()
+    {
+        _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(false);
+
+        OffUI(); 
+    }
+
     public void Cancel()
     {
-
-
         OffUI();
     }
 

@@ -26,5 +26,7 @@ public class RandomItem : MonoBehaviour
         GameManager.Instance._PLAYERSAVE._MONEY -= _cost;
 
         GameManager.Instance._ITEMLIST.GetItem();
+
+        InventoryManager.instance.Refresh();
     }
 }

@@ -20,7 +20,7 @@ public class ItemSave : ScriptableObject
     [SerializeField] private Sprite _itemSprite;
 
     public enum ItemTier { NONE = 0, BASE = 1, RARE = 2, EPIC = 3, LUXURY = 4, LEGEND = 5 }
-    public enum ItemType { NONE, HELMET, WEAPON, CHEST, PANTS, SHOULDER, BOOTS }
+    public enum ItemType { NONE = 0, HELMET = 1, WEAPON = 2, CHEST = 3, PANTS = 4, SHOULDER = 5, BOOTS = 6 }
 
     public int _ITEMNUMBER { get => _itemNumber; }
     public string _ITEMNAME { get => _itemName; }
