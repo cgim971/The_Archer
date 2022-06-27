@@ -3034,6 +3034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 92649294}
+  _selectBtn: {fileID: 1565728877}
 --- !u!1 &877269151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,6 +3560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 363509508}
+  _selectBtn: {fileID: 1757739254}
 --- !u!1 &941889027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,6 +4083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 730779060}
+  _selectBtn: {fileID: 19362764}
 --- !u!1 &1011136735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,7 +4442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00036621094, y: 0}
+  m_AnchoredPosition: {x: 0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1182447632
@@ -4595,18 +4598,6 @@ MonoBehaviour:
   - {fileID: 6873449837491914921}
   - {fileID: 3812209527930607773}
   - {fileID: 4561406472823748520}
-  _materialsArmor:
-  - {fileID: 2100000, guid: f8b4be97010f11944b95b46db6f28eae, type: 2}
-  - {fileID: 2100000, guid: 27dd9685e7bdbea4b8dcbff674fde1c4, type: 2}
-  - {fileID: 2100000, guid: 86ed6e2e59520604f9a89250f87c5da2, type: 2}
-  - {fileID: 2100000, guid: e5546db452fe51f42b5e2eb0e342ebef, type: 2}
-  - {fileID: 2100000, guid: ad4538cb9b342ba4a88a8d19094a88eb, type: 2}
-  _materialsBow:
-  - {fileID: 2100000, guid: 7a7990e5040d0e34a82643e75a298b9b, type: 2}
-  - {fileID: 2100000, guid: 66b528898bf04b04580f42a0338eb5b7, type: 2}
-  - {fileID: 2100000, guid: 1e4ffd2f00f7e2849b17a863929396d8, type: 2}
-  - {fileID: 2100000, guid: 67f4e12710f692e4ca89820e8e367a16, type: 2}
-  - {fileID: 2100000, guid: 3642e380350a63a4e84ed9705a06aa44, type: 2}
   _inventory: {fileID: 502582563}
   _slots: {fileID: 4637818229952428161, guid: 88bee97883fea6946a8fd4d435fd81d4, type: 3}
   _slotList: []
@@ -4616,7 +4607,9 @@ MonoBehaviour:
   _contentText: {fileID: 1397224428}
   _itemImage: {fileID: 1286520527}
   _btns: {fileID: 1111063229}
-  _delay: 0.4
+  _useBtn: {fileID: 809376777}
+  _unquipBtn: {fileID: 2008633628}
+  _delay: 0.3
   _itemList: {fileID: 11400000, guid: 33c030d3db5f9e74283bb956da83c735, type: 2}
   _itemSave: {fileID: 0}
 --- !u!1 &1203067835
@@ -5294,6 +5287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 1619762783}
+  _selectBtn: {fileID: 1598468970}
 --- !u!1 &1397224426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6853,6 +6847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 945102168}
+  _selectBtn: {fileID: 877269153}
 --- !u!1 &1778918670
 GameObject:
   m_ObjectHideFlags: 0
@@ -13250,6 +13245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemImage: {fileID: 1488652565}
+  _selectBtn: {fileID: 6507751465077857075}
 --- !u!1 &8087891886957379217
 GameObject:
   m_ObjectHideFlags: 0
@@ -13552,7 +13548,7 @@ MonoBehaviour:
   _contentsText: {fileID: 8311918204154365496}
   _itemImage: {fileID: 1851203599}
   _closeBtn: {fileID: 406255443723655320}
-  _delay: 0.4
+  _delay: 0.3
 --- !u!4 &8708032903962863990
 Transform:
   m_ObjectHideFlags: 0

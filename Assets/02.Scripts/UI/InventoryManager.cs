@@ -22,6 +22,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Text _contentText;
     [SerializeField] private Image _itemImage;
     [SerializeField] private GameObject _btns;
+    [SerializeField] private Button _useBtn;
+    [SerializeField] private Button _unquipBtn;
     [SerializeField] private float _delay = 0.4f;
 
     [SerializeField] private ItemList _itemList;
@@ -102,6 +104,7 @@ public class InventoryManager : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Append(_panel.DOFade(1, _delay));
         seq.Join(_itemImage.DOFade(1, _delay));
+        seq.Join(_menuPanel.GetComponent<Image>().DOFade(1, _delay));
 
         seq.Play();
 
@@ -118,13 +121,18 @@ public class InventoryManager : MonoBehaviour
         _menuPanel.SetActive(true);
         _btns.SetActive(true);
 
+        if (itemSave._EQUIPMENTITEM)
+            _unquipBtn.gameObject.SetActive(true);
+        else
+            _useBtn.gameObject.SetActive(true);
+
         _player.gameObject.SetActive(false);
         Sequence seq = DOTween.Sequence();
         seq.Append(_panel.DOFade(1, _delay));
         seq.Join(_itemImage.DOFade(1, _delay));
+        seq.Join(_menuPanel.GetComponent<Image>().DOFade(1, _delay));
 
         seq.Play();
-
 
         _titleText.text = itemSave._ITEMNAME;
         _contentText.text = itemSave._ITEMINFORM;
@@ -134,10 +142,13 @@ public class InventoryManager : MonoBehaviour
     public void OffUI()
     {
         _btns.SetActive(false);
+        _unquipBtn.gameObject.SetActive(false);
+        _useBtn.gameObject.SetActive(false);
 
         Sequence seq = DOTween.Sequence();
         seq.Append(_panel.DOFade(0, _delay));
         seq.Join(_itemImage.DOFade(0, _delay));
+        seq.Join(_menuPanel.GetComponent<Image>().DOFade(0, _delay));
 
         seq.Play();
 
@@ -159,11 +170,11 @@ public class InventoryManager : MonoBehaviour
         EquipmentSlot equipmentSlot = _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>();
         if (equipmentSlot.ITEMSAVE != null)
         {
-            equipmentSlot.ITEMSAVE._EQUIPMENTITEM = false;
-            _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
+            equipmentSlot.ITEMSAVE._EQUIPMENTITEM = true;
             _skinParts[(int)_itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = _itemList.Materials((int)_itemSave._ITEMTYPE, (int)_itemSave._ITEMTIER - 1);
-
         }
+        _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
+
         equipmentSlot.SetItem(_itemSave);
 
 
@@ -173,8 +184,10 @@ public class InventoryManager : MonoBehaviour
     public void Unquip()
     {
         _skinParts[(int)_itemSave._ITEMTYPE - 1].gameObject.SetActive(false);
+        _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(null);
+        _itemSave._EQUIPMENTITEM = false;
 
-        OffUI(); 
+        OffUI();
     }
 
     public void Cancel()
