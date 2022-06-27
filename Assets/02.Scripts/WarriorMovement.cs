@@ -31,7 +31,8 @@ public class WarriorMovement : MonoBehaviour
     [SerializeField] private AnimationClip _leftFunchClip;
     [SerializeField] private AnimationClip _rightFunchClip;
 
-
+    [SerializeField] private GameObject _dieEffect;
+    [SerializeField] private GameObject _effect;
     public enum AnimatorType { NONE, IDLE, RUN, FUNCH, HIT, DEATH }
 
     [Header("Attack Property")]
@@ -291,11 +292,14 @@ public class WarriorMovement : MonoBehaviour
         PlayerUI.instance.EnemyUI(_maxHp, _HP);
         _animatorType = AnimatorType.HIT;
         PlayAnimator();
-
+        GameObject effect = Instantiate(_effect, null);
+        effect.transform.position = transform.position;
         if (_HP <= 0)
         {
             _animatorType = AnimatorType.DEATH;
             PlayAnimator();
+            GameObject dieeffect = Instantiate(_dieEffect, null);
+            dieeffect.transform.position = transform.position;
             _isDead = true;
         }
     }

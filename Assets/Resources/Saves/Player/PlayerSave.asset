@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
   _money: 0
-  _hp: 6
+  _hp: 10
   _maxHp: 10
   _attack: 1
   _defense: 0

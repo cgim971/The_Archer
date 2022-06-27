@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
     float _shotTime = 0;
     float _shotCurrentTime = 0;
 
+    [SerializeField] private GameObject _dieEffect;
+    [SerializeField] private GameObject _effect;
+
     public enum AnimatorType { NONE, IDLE, RUN, SHOT, HIT, DEATH }
 
     [Header("Attack Property")]
@@ -111,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     void ClearEnemy()
     {
 
-        if (_isEnd) return; 
+        if (_isEnd) return;
 
         int i = 0;
         for (i = 0; i < enemys.Count; i++)
@@ -253,9 +256,16 @@ public class PlayerMovement : MonoBehaviour
         _playerSave._HP -= (damage - (_playerSave._DEFENSE > 20 ? 19 : _playerSave._DEFENSE) / 20);
         _animatorType = AnimatorType.HIT;
         PlayAnimator();
+        GameObject effect = Instantiate(_effect, null);
+        effect.transform.position = transform.position;
+
         PlayerUI.instance.UpdateUI();
         if (_playerSave._HP <= 0)
         {
+
+            GameObject dieeffect = Instantiate(_dieEffect, null);
+            dieeffect.transform.position = transform.position;
+
             _animatorType = AnimatorType.DEATH;
             PlayAnimator();
             _isDead = true;

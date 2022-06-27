@@ -5341,6 +5341,8 @@ MonoBehaviour:
   _animatorType: 0
   _shotClip: {fileID: 7400000, guid: 2fb73324a35e4f848a526c3c9ea03c24, type: 2}
   _hitClip: {fileID: 7400000, guid: 953e04573ffe6884f9d67e136fa6d953, type: 2}
+  _dieEffect: {fileID: 3123075737211501182, guid: 36e31af05c8565f48a94a4c3a0b4c06a, type: 3}
+  _effect: {fileID: 3302442364004722511, guid: 9b6fa03a2c599704c878c8d6a4c81057, type: 3}
   _shotPos: {fileID: 4385110653695562515}
   _arrow: {fileID: 7318468707401013693, guid: 36263f2034e6ad74bbd630c29d94f5ac, type: 3}
   _playerSave: {fileID: 11400000, guid: 82f18aa7ba70ce94ebe97a7d6ce5ad51, type: 2}

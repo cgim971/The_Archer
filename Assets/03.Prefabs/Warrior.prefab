@@ -340,6 +340,8 @@ MonoBehaviour:
   _animatorType: 3
   _leftFunchClip: {fileID: 7400000, guid: db6226754ce7db6498e4f6a73111b7a1, type: 2}
   _rightFunchClip: {fileID: 7400000, guid: 394cba11c22396c4b94148f25499ee82, type: 2}
+  _dieEffect: {fileID: 3123075737211501182, guid: 36e31af05c8565f48a94a4c3a0b4c06a, type: 3}
+  _effect: {fileID: 3302442364004722511, guid: 9b6fa03a2c599704c878c8d6a4c81057, type: 3}
   _funchRange: 1
   _funchIndex: 0
   _funchCol:
