@@ -9,6 +9,8 @@ public class RandomItem : MonoBehaviour
     [SerializeField] private Text _nameText;
     [SerializeField] private Text _costText;
     [SerializeField] private int _cost;
+    [SerializeField] private Text _text;
+    [SerializeField] private GameObject _panel;
 
     private void Start()
     {
@@ -16,6 +18,8 @@ public class RandomItem : MonoBehaviour
         _nameText.text = "장비 뽑기";
         GetCost();
         _costText.text = $"{_cost}원";
+        _panel.SetActive(false);
+        _panel.GetComponent<Button>().onClick.AddListener(() => OffPanel());
     }
 
     void GetCost()
@@ -26,10 +30,19 @@ public class RandomItem : MonoBehaviour
 
     void ItemPurchase()
     {
-        if (GameManager.Instance._PLAYERSAVE._MONEY < _cost) return;
+        if (GameManager.Instance._PLAYERSAVE._MONEY < _cost)
+        {
+            _panel.SetActive(true);
+            _text.text = "돈이 부족합니다.";
+            return;
+        }
         GameManager.Instance._ITEMLIST.HasItem();
-        if (!GameManager.Instance._ITEMLIST.AbleItem()) return;
-
+        if (!GameManager.Instance._ITEMLIST.AbleItem())
+        {
+            _panel.SetActive(true);
+            _text.text = "구매할 아이템이 존재하지 않습니다.";
+            return;
+        }
         GameManager.Instance._PLAYERSAVE._MONEY -= _cost;
 
         GameManager.Instance._ITEMLIST.GetItem();
@@ -38,5 +51,10 @@ public class RandomItem : MonoBehaviour
 
         GetCost();
         _costText.text = $"{_cost}원";
+    }
+
+    public void OffPanel()
+    {
+        _panel.SetActive(false);
     }
 }

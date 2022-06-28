@@ -276,22 +276,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnGUI()
     {
-        if (_characterController != null)
-        {
-            var labelStyle = new GUIStyle();
-            labelStyle.fontSize = 50;
-            labelStyle.normal.textColor = Color.black;
-            GUILayout.Label("플레이어 이동 : WASD, 플레이어 공격 : 마우스 좌클릭", labelStyle);
+        //if (_characterController != null)
+        //{
+        //    var labelStyle = new GUIStyle();
+        //    labelStyle.fontSize = 50;
+        //    labelStyle.normal.textColor = Color.black;
+        //    GUILayout.Label("플레이어 이동 : WASD, 플레이어 공격 : 마우스 좌클릭", labelStyle);
 
-            GUILayout.Label("HP : " + _playerSave._HP.ToString(), labelStyle);
+        //    GUILayout.Label("HP : " + _playerSave._HP.ToString(), labelStyle);
 
-            GUILayout.Label("MAXHP : " + _playerSave._MAXHP.ToString(), labelStyle);
+        //    GUILayout.Label("MAXHP : " + _playerSave._MAXHP.ToString(), labelStyle);
 
-            GUILayout.Label("ATTACK : " + _playerSave._ATTACK.ToString(), labelStyle);
+        //    GUILayout.Label("ATTACK : " + _playerSave._ATTACK.ToString(), labelStyle);
 
-            GUILayout.Label("DEFENSE : " + _playerSave._DEFENSE.ToString(), labelStyle);
+        //    GUILayout.Label("DEFENSE : " + _playerSave._DEFENSE.ToString(), labelStyle);
 
-            GUILayout.Label("SPEED : " + _playerSave._SPEED.ToString(), labelStyle);
-        }
+        //    GUILayout.Label("SPEED : " + _playerSave._SPEED.ToString(), labelStyle);
+        //}
     }
 }

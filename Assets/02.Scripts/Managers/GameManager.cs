@@ -1,12 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class GameManager : SMonoBehaviour<GameManager>
 {
 
     [SerializeField] PlayerSave _playerSave;
     [SerializeField] ItemList _itemList;
+
+    [SerializeField] private int _maxHp = 10;
+    [SerializeField] private int _attack = 1;
+    [SerializeField] private int _defense = 0;
+    [SerializeField] private int _speed = 5;
+
+    public int MAXHP { get => _maxHp; }
+    public int ATTACK { get => _attack; }
+    public int DEFENSE { get => _defense; }
+    public int SPEED { get => _speed; }
+
     public PlayerSave _PLAYERSAVE { get => _playerSave; }
     public ItemList _ITEMLIST { get => _itemList; }
 
@@ -29,10 +41,10 @@ public class GameManager : SMonoBehaviour<GameManager>
 
     public void ItemEffect()
     {
-        _playerSave._MAXHP = 10;
-        _playerSave._ATTACK = 1;
-        _playerSave._DEFENSE = 0;
-        _playerSave._SPEED = 5;
+        _playerSave._MAXHP = _maxHp;
+        _playerSave._ATTACK = _attack;
+        _playerSave._DEFENSE = _defense;
+        _playerSave._SPEED = _speed;
 
 
         foreach (ItemSave itemSave in _itemList._ITEMSAVES)
