@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 5252089886000120130}
-  _speed: 5
+  _speed: 8
   _attack: 0
 --- !u!54 &5252089886000120130
 Rigidbody:

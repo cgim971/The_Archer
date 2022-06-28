@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private ItemList _itemList;
 
     [SerializeField] ItemSave _itemSave;
+    public GameObject _stats;
 
     private void Awake()
     {
@@ -104,6 +105,7 @@ public class InventoryManager : MonoBehaviour
     {
         _menuPanel.SetActive(true);
         _btns.SetActive(true);
+        _stats.SetActive(true);
 
         _player.gameObject.SetActive(false);
         Sequence seq = DOTween.Sequence();
@@ -125,6 +127,85 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Text _spdStatText;
     [SerializeField] private Text _hpStatText;
 
+    public void UpdateStats(int type, ItemSave itemSave)
+    {
+        if (itemSave._ITEMTYPE == ItemSave.ItemType.HELMET || itemSave._ITEMTYPE == ItemSave.ItemType.SHOULDER)
+        {
+            int index = 0;
+
+            if (itemSave._ITEMTYPE == ItemSave.ItemType.HELMET)
+            {
+                if (_parts[0].GetComponent<EquipmentSlot>().ITEMSAVE != null)
+                    index = (int)_parts[0].GetComponent<EquipmentSlot>().ITEMSAVE._EFFECT;
+            }
+
+            else if (itemSave._ITEMTYPE == ItemSave.ItemType.SHOULDER)
+            {
+                if (_parts[4].GetComponent<EquipmentSlot>().ITEMSAVE != null)
+                    index = (int)_parts[4].GetComponent<EquipmentSlot>().ITEMSAVE._EFFECT;
+            }
+
+            if (type == 0)
+                _defStatText.text = $"DEF {GameManager.Instance._PLAYERSAVE._DEFENSE} ¡æ {GameManager.Instance._PLAYERSAVE._DEFENSE - index + itemSave._EFFECT}";
+            else
+                _defStatText.text = $"DEF {GameManager.Instance._PLAYERSAVE._DEFENSE} ¡æ {GameManager.Instance._PLAYERSAVE._DEFENSE - itemSave._EFFECT}";
+        }
+        else
+        {
+            _defStatText.text = $"DEF {GameManager.Instance._PLAYERSAVE._DEFENSE}";
+        }
+
+        if (itemSave._ITEMTYPE == ItemSave.ItemType.WEAPON)
+        {
+            if (type == 0)
+                _atkStatText.text = $"ATK {GameManager.Instance._PLAYERSAVE._ATTACK} ¡æ {GameManager.Instance._PLAYERSAVE._ATTACK + itemSave._EFFECT}";
+            else
+                _atkStatText.text = $"ATK {GameManager.Instance._PLAYERSAVE._ATTACK} ¡æ {GameManager.Instance._PLAYERSAVE._ATTACK - itemSave._EFFECT}";
+        }
+        else
+        {
+            _atkStatText.text = $"ATK {GameManager.Instance._PLAYERSAVE._ATTACK} ";
+        }
+
+        if (itemSave._ITEMTYPE == ItemSave.ItemType.BOOTS)
+        {
+            if (type == 0)
+                _spdStatText.text = $"SPD {GameManager.Instance._PLAYERSAVE._SPEED} ¡æ {GameManager.Instance._PLAYERSAVE._SPEED + itemSave._EFFECT}";
+            else
+                _spdStatText.text = $"SPD {GameManager.Instance._PLAYERSAVE._SPEED} ¡æ {GameManager.Instance._PLAYERSAVE._SPEED - itemSave._EFFECT}";
+        }
+        else
+        {
+            _spdStatText.text = $"SPD {GameManager.Instance._PLAYERSAVE._SPEED}";
+        }
+
+        if (itemSave._ITEMTYPE == ItemSave.ItemType.CHEST || itemSave._ITEMTYPE == ItemSave.ItemType.PANTS)
+        {
+
+            int index = 0;
+
+            if (itemSave._ITEMTYPE == ItemSave.ItemType.CHEST)
+            {
+                if (_parts[2].GetComponent<EquipmentSlot>().ITEMSAVE != null)
+                    index = (int)_parts[2].GetComponent<EquipmentSlot>().ITEMSAVE._EFFECT;
+            }
+            else if (itemSave._ITEMTYPE == ItemSave.ItemType.PANTS)
+            {
+                if (_parts[3].GetComponent<EquipmentSlot>().ITEMSAVE != null)
+                    index = (int)_parts[3].GetComponent<EquipmentSlot>().ITEMSAVE._EFFECT;
+            }
+
+            if (type == 0)
+                _hpStatText.text = $"HP {GameManager.Instance._PLAYERSAVE._MAXHP} ¡æ {GameManager.Instance._PLAYERSAVE._MAXHP - index + itemSave._EFFECT}";
+            else
+                _hpStatText.text = $"HP {GameManager.Instance._PLAYERSAVE._MAXHP} ¡æ {GameManager.Instance._PLAYERSAVE._MAXHP - itemSave._EFFECT}";
+        }
+        else
+        {
+            _hpStatText.text = $"HP {GameManager.Instance._PLAYERSAVE._MAXHP}";
+        }
+    }
+
     public void OnUI(ItemSave itemSave)
     {
         if (itemSave == null) return;
@@ -133,17 +214,16 @@ public class InventoryManager : MonoBehaviour
 
         _menuPanel.SetActive(true);
         _btns.SetActive(true);
+        _stats.SetActive(true);
 
         if (itemSave._EQUIPMENTITEM)
         {
+            UpdateStats(1, itemSave);
             _unquipBtn.gameObject.SetActive(true);
         }
         else
         {
-            _atkStatText.text = $"ATK {GameManager.Instance._PLAYERSAVE._ATTACK} ¡æ {GetItem(0) + itemSave._EFFECT}";
-            _defStatText.text = $"DEF {GameManager.Instance._PLAYERSAVE._DEFENSE} ¡æ {GetItem(1) + itemSave._EFFECT}";
-            _spdStatText.text = $"SPD {GameManager.Instance._PLAYERSAVE._SPEED} ¡æ {GetItem(2) + itemSave._EFFECT}";
-            _hpStatText.text = $"HP {GameManager.Instance._PLAYERSAVE._HP} ¡æ {GetItem(3) + itemSave._EFFECT}";
+            UpdateStats(0, itemSave);
 
             _useBtn.gameObject.SetActive(true);
         }
@@ -165,68 +245,12 @@ public class InventoryManager : MonoBehaviour
         UpdateStats();
     }
 
-    public int GetItem(int index)
-    {
-        float returnIndex = 0;
-        switch (index)
-        {
-            case 0:
-                foreach (ItemSave itemSave in _itemList._itemSaves)
-                {
-                    if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
-                    if (!itemSave._EQUIPMENTITEM) continue;
-                    if (itemSave._ITEMTYPE == ItemSave.ItemType.WEAPON)
-                    {
-                        returnIndex += itemSave._EFFECT;
-                    }
-                }
-                return (int)returnIndex;
-            case 1:
-                foreach (ItemSave itemSave in _itemList._itemSaves)
-                {
-                    if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
-                    if (!itemSave._EQUIPMENTITEM) continue;
-                    if (itemSave._ITEMTYPE == ItemSave.ItemType.HELMET || itemSave._ITEMTYPE == ItemSave.ItemType.SHOULDER)
-                    {
-                        returnIndex += itemSave._EFFECT;
-                    }
-                }
-                return (int)returnIndex;
-
-            case 2:
-                foreach (ItemSave itemSave in _itemList._itemSaves)
-                {
-                    if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
-                    if (!itemSave._EQUIPMENTITEM) continue;
-                    if (itemSave._ITEMTYPE == ItemSave.ItemType.BOOTS)
-                    {
-                        returnIndex += itemSave._EFFECT;
-                    }
-                }
-                return (int)returnIndex;
-
-            case 3:
-                foreach (ItemSave itemSave in _itemList._itemSaves)
-                {
-                    if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
-                    if (!itemSave._EQUIPMENTITEM) continue;
-                    if (itemSave._ITEMTYPE == ItemSave.ItemType.CHEST || itemSave._ITEMTYPE == ItemSave.ItemType.PANTS)
-                    {
-                        returnIndex += itemSave._EFFECT;
-                    }
-                }
-                return (int)returnIndex;
-
-        }
-
-        return 0;
-    }
-
     public void OffUI()
     {
         _btns.SetActive(false);
         _unquipBtn.gameObject.SetActive(false);
         _useBtn.gameObject.SetActive(false);
+        _stats.SetActive(false);
 
         Sequence seq = DOTween.Sequence();
         seq.Append(_panel.DOFade(0, _delay));
@@ -290,6 +314,7 @@ public class InventoryManager : MonoBehaviour
         _itemSave._EQUIPMENTITEM = false;
 
         GameManager.Instance.ItemEffect();
+
         OffUI();
     }
 

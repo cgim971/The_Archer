@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     void Attack()
     {
         if (_velocity != Vector3.zero) return;
+        if (_shotCurrentTime > 0) return;
         target = enemys[0];
         if (target == null) return;
 
@@ -201,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
     public void Attacking()
     {
         if (!_isAttacking) return;
+        
         GameObject newArrow = Instantiate(_arrow, null);
         newArrow.transform.position = _shotPos.position;
         Quaternion angle = Quaternion.Euler(90, transform.eulerAngles.y, 0);

@@ -461,8 +461,7 @@ Transform:
   m_LocalPosition: {x: 0.108, y: 0.017, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4385110653695562515}
+  m_Children: []
   m_Father: {fileID: 4055302994701236692}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3076,12 +3075,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4385110653695562512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1897552976133938975}
-  m_RootOrder: 0
+  m_Father: {fileID: 6971155929987281696}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4423641908374101806
 GameObject:
@@ -5276,6 +5275,7 @@ Transform:
   - {fileID: 5994543343931397151}
   - {fileID: 8306955157284024214}
   - {fileID: 4385110652829960854}
+  - {fileID: 4385110653695562515}
   m_Father: {fileID: 4385110652317991176}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5329,7 +5329,15 @@ MonoBehaviour:
   _effect: {fileID: 3302442364004722511, guid: 9b6fa03a2c599704c878c8d6a4c81057, type: 3}
   _shotPos: {fileID: 4385110653695562515}
   _arrow: {fileID: 7318468707401013693, guid: 36263f2034e6ad74bbd630c29d94f5ac, type: 3}
-  _playerSave: {fileID: 11400000, guid: 82f18aa7ba70ce94ebe97a7d6ce5ad51, type: 2}
+  _playerSave:
+    _money: 0
+    _hp: 0
+    _maxHp: 30
+    _attack: 0
+    _defense: 0
+    _speed: 5
+    _itemList:
+      _itemSaves: []
   enemys:
   - {fileID: 0}
   DebugMode: 0
