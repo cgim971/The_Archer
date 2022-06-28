@@ -21,6 +21,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Image _pausePanel;
     [SerializeField] private Button _continueGameBtn;
     [SerializeField] private Button _endGameBtn;
+    [SerializeField] private Button _lobbyBtn2;
 
     [SerializeField] private float _delay;
 
@@ -40,6 +41,7 @@ public class StageManager : MonoBehaviour
         _pauseBtn.onClick.AddListener(() => OnSetting());
         _continueGameBtn.onClick.AddListener(() => OffSetting());
         _endGameBtn.onClick.AddListener(() => Application.Quit());
+        _lobbyBtn2.onClick.AddListener(() => Lobby());
 
         OffSetting();
     }
