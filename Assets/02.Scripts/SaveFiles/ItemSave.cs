@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "item_", menuName = "SaveFiles/Items")]
-public class ItemSave : ScriptableObject
+[System.Serializable]
+public class ItemSave
 {
     [SerializeField] private int _itemNumber;
     // 아이템 이름
@@ -14,12 +14,11 @@ public class ItemSave : ScriptableObject
     [SerializeField] private ItemTier _itemTier;
     // 아이템 타입
     [SerializeField] ItemType _itemType;
+    public Sprite _itemSprite;
     // 아이템을 가지고 있는지
     [SerializeField] private bool _hasItem;
     [SerializeField] private bool _equipmentItem;
-    [SerializeField] private Sprite _itemSprite;
     [SerializeField] private float _effect;
-
     public enum ItemTier { NONE = 0, BASE = 1, RARE = 2, EPIC = 3, LUXURY = 4, LEGEND = 5 }
     public enum ItemType { NONE = 0, HELMET = 1, WEAPON = 2, CHEST = 3, PANTS = 4, SHOULDER = 5, BOOTS = 6 }
 
@@ -47,6 +46,5 @@ public class ItemSave : ScriptableObject
             _equipmentItem = value;
         }
     }
-    public Sprite _ITEMSPRITE { get => _itemSprite; }
     public float _EFFECT { get => _effect; }
 }

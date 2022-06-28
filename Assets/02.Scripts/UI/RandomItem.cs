@@ -24,7 +24,7 @@ public class RandomItem : MonoBehaviour
 
     void GetCost()
     {
-        int itemCount = GameManager.Instance._ITEMLIST.GetItemCount() + 1;
+        int itemCount = GameManager.Instance._PLAYERSAVE._itemList.GetItemCount() + 1;
         _cost = (int)(5 + (itemCount - 1) * 10);
     }
 
@@ -36,8 +36,8 @@ public class RandomItem : MonoBehaviour
             _text.text = "돈이 부족합니다.";
             return;
         }
-        GameManager.Instance._ITEMLIST.HasItem();
-        if (!GameManager.Instance._ITEMLIST.AbleItem())
+        GameManager.Instance._PLAYERSAVE._itemList.HasItem();
+        if (!GameManager.Instance._PLAYERSAVE._itemList.AbleItem())
         {
             _panel.SetActive(true);
             _text.text = "구매할 아이템이 존재하지 않습니다.";
@@ -45,7 +45,7 @@ public class RandomItem : MonoBehaviour
         }
         GameManager.Instance._PLAYERSAVE._MONEY -= _cost;
 
-        GameManager.Instance._ITEMLIST.GetItem();
+        GameManager.Instance._PLAYERSAVE._itemList.GetItem();
 
         InventoryManager.instance.Refresh();
 

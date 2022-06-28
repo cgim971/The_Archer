@@ -17,7 +17,7 @@ public class SlotManager : MonoBehaviour
     {
         _itemSave = itemSave;
         if (itemSave != null)
-            _image.sprite = itemSave._ITEMSPRITE;
+            _image.sprite = GameManager.Instance._PLAYERSAVE._itemList._itemSaves[itemSave._ITEMNUMBER]._itemSprite;
     }
 
 

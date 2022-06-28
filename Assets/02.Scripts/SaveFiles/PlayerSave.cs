@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerSave", menuName = "SaveFiles/Player")]
-
-public class PlayerSave : ScriptableObject
+[System.Serializable]
+public class PlayerSave 
 {
-
     [SerializeField] private long _money;
 
     [SerializeField] private float _hp;
@@ -15,6 +13,8 @@ public class PlayerSave : ScriptableObject
     [SerializeField] private float _attack;
     [SerializeField] private float _defense = 0;
     [SerializeField] private float _speed = 5;
+
+    public ItemList _itemList;
 
     public long _MONEY
     {
@@ -44,4 +44,6 @@ public class PlayerSave : ScriptableObject
     {
         get => _speed; set => _speed = value;
     }
+
+
 }

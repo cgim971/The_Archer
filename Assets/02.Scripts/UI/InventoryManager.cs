@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        _itemList = GameManager.Instance._ITEMLIST;
+        _itemList = GameManager.Instance._PLAYERSAVE._itemList;
 
 
         for (int index = 0; index < 30; index++)
@@ -73,7 +73,7 @@ public class InventoryManager : MonoBehaviour
 
     void EquipmentItem()
     {
-        foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+        foreach (ItemSave itemSave in _itemList._itemSaves)
         {
             if (itemSave._EQUIPMENTITEM)
             {
@@ -81,7 +81,7 @@ public class InventoryManager : MonoBehaviour
 
                 _parts[(int)itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>().SetItem(itemSave);
 
-                _skinParts[(int)itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = _itemList.Materials((int)itemSave._ITEMTYPE, (int)itemSave._ITEMTIER - 1);
+                _skinParts[(int)itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = GameManager.Instance.Materials((int)itemSave._ITEMTYPE, (int)itemSave._ITEMTIER - 1);
             }
         }
     }
@@ -89,12 +89,12 @@ public class InventoryManager : MonoBehaviour
     int count = 0;
     public ItemSave GetItemSave()
     {
-        for (int i = count; i < _itemList._ITEMSAVES.Count; i++, count++)
+        for (int i = count; i < _itemList._itemSaves.Count; i++, count++)
         {
-            if (_itemList._ITEMSAVES[i]._HASITEM)
+            if (_itemList._itemSaves[i]._HASITEM)
             {
                 count++;
-                return _itemList._ITEMSAVES[i];
+                return _itemList._itemSaves[i];
             }
         }
         return null;
@@ -158,9 +158,9 @@ public class InventoryManager : MonoBehaviour
 
         _titleText.text = itemSave._ITEMNAME;
         _contentText.text = itemSave._ITEMINFORM;
-        _itemImage.sprite = itemSave._ITEMSPRITE;
+        _itemImage.sprite = GameManager.Instance._PLAYERSAVE._itemList._itemSaves[itemSave._ITEMNUMBER]._itemSprite;
 
-        
+
 
         UpdateStats();
     }
@@ -171,7 +171,7 @@ public class InventoryManager : MonoBehaviour
         switch (index)
         {
             case 0:
-                foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+                foreach (ItemSave itemSave in _itemList._itemSaves)
                 {
                     if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
                     if (!itemSave._EQUIPMENTITEM) continue;
@@ -182,7 +182,7 @@ public class InventoryManager : MonoBehaviour
                 }
                 return (int)returnIndex;
             case 1:
-                foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+                foreach (ItemSave itemSave in _itemList._itemSaves)
                 {
                     if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
                     if (!itemSave._EQUIPMENTITEM) continue;
@@ -194,7 +194,7 @@ public class InventoryManager : MonoBehaviour
                 return (int)returnIndex;
 
             case 2:
-                foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+                foreach (ItemSave itemSave in _itemList._itemSaves)
                 {
                     if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
                     if (!itemSave._EQUIPMENTITEM) continue;
@@ -206,7 +206,7 @@ public class InventoryManager : MonoBehaviour
                 return (int)returnIndex;
 
             case 3:
-                foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+                foreach (ItemSave itemSave in _itemList._itemSaves)
                 {
                     if (itemSave._ITEMTYPE == _itemSave._ITEMTYPE) continue;
                     if (!itemSave._EQUIPMENTITEM) continue;
@@ -254,7 +254,7 @@ public class InventoryManager : MonoBehaviour
     {
         EquipmentSlot equipmentSlot = _parts[(int)_itemSave._ITEMTYPE - 1].GetComponent<EquipmentSlot>();
 
-        foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+        foreach (ItemSave itemSave in _itemList._itemSaves)
         {
             if (_itemSave._ITEMTYPE == itemSave._ITEMTYPE)
             {
@@ -271,7 +271,7 @@ public class InventoryManager : MonoBehaviour
         if (equipmentSlot.ITEMSAVE != null)
         {
             equipmentSlot.ITEMSAVE._EQUIPMENTITEM = true;
-            _skinParts[(int)_itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = _itemList.Materials((int)_itemSave._ITEMTYPE, (int)_itemSave._ITEMTIER - 1);
+            _skinParts[(int)_itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = GameManager.Instance.Materials((int)_itemSave._ITEMTYPE, (int)_itemSave._ITEMTIER - 1);
         }
     }
 

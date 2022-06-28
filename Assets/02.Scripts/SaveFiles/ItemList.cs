@@ -2,21 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemList", menuName = "SaveFiles/Lists/ItemList")]
-public class ItemList : ScriptableObject
+[System.Serializable]
+public class ItemList
 {
-    [SerializeField] List<ItemSave> _itemSaves = new List<ItemSave>();
-    [SerializeField] private Material[] _materialsArmor;
-    [SerializeField] private Material[] _materialsBow;
-    public Material Materials(int type, int index)
-    {
-        if (type != 2)
-            return _materialsArmor[index];
-        else
-            return _materialsBow[index];
-    }
+   public List<ItemSave> _itemSaves = new List<ItemSave>();
 
-    public List<ItemSave> _ITEMSAVES { get => _itemSaves; }
     int _itemCount = 0;
 
     public int GetItemCount()
@@ -40,14 +30,16 @@ public class ItemList : ScriptableObject
     public void GetItem()
     {
         List<ItemSave> items = new List<ItemSave>();
+
         int itemTier = Random.Range(0, 100);
+
         if (itemTier < 80) itemTier = 1;
         else if (itemTier < 92) itemTier = 2;
         else if (itemTier < 96) itemTier = 3;
         else if (itemTier < 99) itemTier = 4;
         else itemTier = 5;
 
-        foreach (ItemSave item in _ITEMSAVES)
+        foreach (ItemSave item in _itemSaves)
         {
             if ((int)item._ITEMTIER == itemTier)
             {
@@ -74,7 +66,7 @@ public class ItemList : ScriptableObject
 
     public bool AbleItem()
     {
-        if (_ITEMSAVES.Count > _itemCount) return true;
+        if (_itemSaves.Count > _itemCount) return true;
 
         return false;
     }

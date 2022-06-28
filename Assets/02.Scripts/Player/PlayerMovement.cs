@@ -90,12 +90,12 @@ public class PlayerMovement : MonoBehaviour
             _skinParts[i].gameObject.SetActive(false);
         }
 
-        foreach (ItemSave itemSave in GameManager.Instance._ITEMLIST._ITEMSAVES)
+        foreach (ItemSave itemSave in GameManager.Instance._PLAYERSAVE._itemList._itemSaves)
         {
             if (itemSave._EQUIPMENTITEM)
             {
                 _skinParts[(int)itemSave._ITEMTYPE - 1].gameObject.SetActive(true);
-                _skinParts[(int)itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = GameManager.Instance._ITEMLIST.Materials((int)itemSave._ITEMTYPE, (int)itemSave._ITEMTIER - 1);
+                _skinParts[(int)itemSave._ITEMTYPE - 1].GetComponent<Renderer>().material = GameManager.Instance.Materials((int)itemSave._ITEMTYPE, (int)itemSave._ITEMTIER - 1);
             }
         }
     }

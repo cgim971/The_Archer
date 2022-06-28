@@ -26,7 +26,7 @@ public class EquipmentSlot : MonoBehaviour
         _itemSave = itemSave;
         if (itemSave != null)
         {
-            _itemImage.sprite = itemSave._ITEMSPRITE;
+            _itemImage.sprite = GameManager.Instance._PLAYERSAVE._itemList._itemSaves[_itemSave._ITEMNUMBER]._itemSprite;
             _itemSave._EQUIPMENTITEM = true;
         }
         else

@@ -5615,8 +5615,18 @@ MonoBehaviour:
   _useBtn: {fileID: 809376777}
   _unquipBtn: {fileID: 2008633628}
   _delay: 0.3
-  _itemList: {fileID: 11400000, guid: 33c030d3db5f9e74283bb956da83c735, type: 2}
-  _itemSave: {fileID: 0}
+  _itemList:
+    _itemSaves: []
+  _itemSave:
+    _itemNumber: 0
+    _itemName: 
+    _itemInform: 
+    _itemTier: 0
+    _itemType: 0
+    _itemSprite: {fileID: 0}
+    _hasItem: 0
+    _equipmentItem: 0
+    _effect: 0
   _atkText: {fileID: 453482164}
   _defText: {fileID: 2033671900}
   _hpText: {fileID: 545276297}
@@ -7426,7 +7436,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1536763998}
   - component: {fileID: 1536763997}
-  - component: {fileID: 1536763999}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7446,12 +7455,361 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21626de08d8373e42befc31692c05946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSave: {fileID: 0}
-  _itemList: {fileID: 0}
+  _playerSave:
+    _money: 0
+    _hp: 0
+    _maxHp: 30
+    _attack: 0
+    _defense: 0
+    _speed: 5
+    _itemList:
+      _itemSaves:
+      - _itemNumber: 0
+        _itemName: "\uD754\uD55C \uBAA8\uC790"
+        _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBAA8\uC790\uC774\uB2E4. \uC544\uC8FC
+          \uC57D\uAC04\uC758 \uBC29\uC5B4\uB825\uC774 \uC0C1\uC2B9\uD55C\uB2E4."
+        _itemTier: 1
+        _itemType: 1
+        _itemSprite: {fileID: 21300000, guid: 631ad9e48127fea418aeccad143241d1, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 1
+      - _itemNumber: 1
+        _itemName: "\uD754\uD55C \uBB34\uAE30"
+        _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBB34\uAE30\uC774\uB2E4. \uC544\uC8FC
+          \uC57D\uAC04\uC758 \uACF5\uACA9\uB825\uC774 \uC0C1\uC2B9\uD55C\uB2E4."
+        _itemTier: 1
+        _itemType: 2
+        _itemSprite: {fileID: 21300000, guid: a640462d7a433cf4da57fc46814231ff, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 1
+      - _itemNumber: 2
+        _itemName: "\uD754\uD55C \uC0C1\uC758"
+        _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uC0C1\uC758\uC774\uB2E4. \uC544\uC8FC
+          \uC57D\uAC04\uC758 \uCCB4\uB825\uC774 \uC99D\uAC00\uD55C\uB2E4."
+        _itemTier: 1
+        _itemType: 3
+        _itemSprite: {fileID: 21300000, guid: df979fa68198cdf45a0683009429248a, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 1
+      - _itemNumber: 3
+        _itemName: "\uD754\uD55C \uD558\uC758"
+        _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uD558\uC758\uC774\uB2E4."
+        _itemTier: 1
+        _itemType: 4
+        _itemSprite: {fileID: 21300000, guid: f1a5b99d29ca49644bb0013706dcd72a, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 1
+      - _itemNumber: 4
+        _itemName: "\uD754\uD55C \uC5B4\uAE68 \uC7A5\uC2DD"
+        _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uC5B4\uAE68 \uC7A5\uC2DD\uC774\uB2E4.
+          \uC544\uC8FC \uC57D\uAC04\uC758 \uBC29\uC5B4\uB825\uC774 \uC0C1\uC2B9\uD55C\uB2E4."
+        _itemTier: 1
+        _itemType: 5
+        _itemSprite: {fileID: 21300000, guid: 39d76814f6c5be548b20f650b3b246d7, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 1
+      - _itemNumber: 5
+        _itemName: "\uD754\uD55C \uBD80\uCE20"
+        _itemInform: "\uD754\uD558\uB514 \uD754\uD55C \uBD80\uCE20\uC774\uB2E4. \uC544\uC8FC
+          \uC57D\uAC04\uC758 \uC2A4\uD53C\uB4DC\uAC00 \uBE68\uB77C\uC9C4\uB2E4."
+        _itemTier: 1
+        _itemType: 6
+        _itemSprite: {fileID: 21300000, guid: 40c666ccd34093948ac18933a2ae5fe1, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 1
+      - _itemNumber: 6
+        _itemName: "\uB35C \uD754\uD55C \uBAA8\uC790"
+        _itemInform: "\uB35C \uD754\uD55C \uBAA8\uC790\uC774\uB2E4. \uD754\uD55C
+          \uBAA8\uC790\uBCF4\uB2E4\uB294 \uC870\uAE08 \uB354 \uBC29\uC5B4\uB825\uC774
+          \uB192\uB2E4."
+        _itemTier: 2
+        _itemType: 1
+        _itemSprite: {fileID: 21300000, guid: aecf48ceb56e8874aa62120ad13529b7, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 2
+      - _itemNumber: 7
+        _itemName: "\uB35C \uD754\uD55C \uD65C"
+        _itemInform: "\uB35C \uD754\uD55C \uD65C\uC774\uB2E4. \uD754\uD55C \uD665\uBCF4\uB2E4\uB294
+          \uC870\uAE08  \uACF5\uACA9\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 2
+        _itemType: 2
+        _itemSprite: {fileID: 21300000, guid: c6998e3e9d730a5409eb1c49a1527abd, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 2
+      - _itemNumber: 8
+        _itemName: "\uB35C \uD754\uD55C \uC0C1\uC758"
+        _itemInform: "\uB35C \uD754\uD55C \uC0C1\uC758\uC774\uB2E4. \uD754\uD55C
+          \uC0C1\uC758\uBCF4\uB2E4\uB294 \uC870\uAE08 \uB354 \uCCB4\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 2
+        _itemType: 3
+        _itemSprite: {fileID: 21300000, guid: 0210603e932baf642b219ccca1050543, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 2
+      - _itemNumber: 9
+        _itemName: "\uB35C \uD754\uD55C \uD558\uC758"
+        _itemInform: "\uB35C \uD754\uD55C \uD558\uC758\uC774\uB2E4. \uD754\uD55C
+          \uD558\uC758\uBCF4\uB2E4\uB294 \uC870\uAE08 \uB354 \uCCB4\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 2
+        _itemType: 4
+        _itemSprite: {fileID: 21300000, guid: d0de064cad331584c896634c8057b1d2, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 2
+      - _itemNumber: 10
+        _itemName: "\uB35C \uD754\uD55C \uC5B4\uAE68 \uC7A5\uC2DD"
+        _itemInform: "\uB35C \uD754\uD55C \uC5B4\uAE68 \uC7A5\uC2DD\uC774\uB2E4.
+          \uD754\uD55C \uC5B4\uAE68 \uC7A5\uC2DD\uBCF4\uB2E4\uB294 \uC870\uAE08 \uB354
+          \uBC29\uC5B4\uB825\uC774 \uC99D\uAC00\uD55C\uB2E4."
+        _itemTier: 2
+        _itemType: 5
+        _itemSprite: {fileID: 21300000, guid: 450169c2ed0bad142915821671cf67b7, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 2
+      - _itemNumber: 11
+        _itemName: "\uB35C \uD754\uD55C \uBD80\uCE20"
+        _itemInform: "\uB35C \uD754\uD55C \uBD80\uCE20\uC774\uB2E4. \uD754\uD55C
+          \uBD80\uCE20\uBCF4\uB2E4\uB294 \uC870\uAE08 \uB354 \uC2A4\uD53C\uAC00 \uBE60\uB974\uB2E4."
+        _itemTier: 2
+        _itemType: 6
+        _itemSprite: {fileID: 21300000, guid: 5055b9650648a084797c96e53c59c1dd, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 2
+      - _itemNumber: 12
+        _itemName: "\uD3C9\uBC94\uD55C \uBAA8\uC790"
+        _itemInform: "\uD3C9\uBC94\uD55C \uBAA8\uC790\uC774\uB2E4. \uB35C \uD754\uD55C
+          \uBAA8\uC790\uBCF4\uB2E4 \uBC29\uC5B4\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 3
+        _itemType: 1
+        _itemSprite: {fileID: 21300000, guid: 0f9d07eb2419f5540acf6093070a9e0c, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 3
+      - _itemNumber: 13
+        _itemName: "\uD3C9\uBC94\uD55C \uD65C"
+        _itemInform: "\uD3C9\uBC94\uD55C \uD65C\uC774\uB2E4. \uB35C \uD754\uD55C
+          \uD65C\uBCF4\uB2E4 \uACF5\uACA9\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 3
+        _itemType: 2
+        _itemSprite: {fileID: 21300000, guid: 6c5a8baa002533d47b7d832e67ea00b0, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 3
+      - _itemNumber: 14
+        _itemName: "\uD3C9\uBC94\uD55C \uC0C1\uC758"
+        _itemInform: "\uD3C9\uBC94\uD55C \uC0C1\uC758\uC774\uB2E4. \uB35C \uD754\uD55C
+          \uC0C1\uC758\uBCF4\uB2E4 \uCCB4\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 3
+        _itemType: 3
+        _itemSprite: {fileID: 21300000, guid: 401d9e5c83a94cc49a29d36d661009e7, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 3
+      - _itemNumber: 15
+        _itemName: "\uD3C9\uBC94\uD55C \uD558\uC758"
+        _itemInform: "\uD3C9\uBC94\uD55C \uD558\uC758\uC774\uB2E4. \uB35C \uD754\uD55C
+          \uD558\uC758\uBCF4\uB2E4 \uCCB4\uB825\uC774 \uB192\uB2E4."
+        _itemTier: 3
+        _itemType: 4
+        _itemSprite: {fileID: 21300000, guid: b79c3b56b9229c34a8f38f6440dc1d87, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 3
+      - _itemNumber: 16
+        _itemName: "\uD3C9\uBC94\uD55C \uC5B4\uAE68 \uC7A5\uC2DD"
+        _itemInform: "\uD3C9\uBC94\uD55C \uC5B4\uAE68 \uC7A5\uC2DD\uC774\uB2E4. \uB35C
+          \uD754\uD55C \uC5B4\uAE68 \uC7A5\uC2DD\uBCF4\uB2E4 \uBC29\uC5B4\uB825\uC774
+          \uB192\uB2E4."
+        _itemTier: 3
+        _itemType: 5
+        _itemSprite: {fileID: 21300000, guid: bab8bd9b4b269f7498dce04f61aba5ec, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 3
+      - _itemNumber: 17
+        _itemName: "\uD3C9\uBC94\uD55C \uBD80\uCE20"
+        _itemInform: "\uD3C9\uBC94\uD55C \uBD80\uCE20\uC774\uB2E4. \uB35C \uD754\uD55C
+          \uBD80\uCE20\uBCF4\uB2E4 \uC2A4\uD53C\uB4DC\uAC00 \uB192\uB2E4."
+        _itemTier: 3
+        _itemType: 6
+        _itemSprite: {fileID: 21300000, guid: 6e8a3eb3926d4d34b9c0b51cd6e19f85, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 3
+      - _itemNumber: 18
+        _itemName: "\uCACC \uADC0\uD55C \uBAA8\uC790"
+        _itemInform: "\uCACC \uADC0\uD55C \uBAA8\uC790\uC774\uB2E4. \uC0DD\uAC01\uBCF4\uB2E4
+          \uC88B\uC744\uC218\uB3C4~"
+        _itemTier: 4
+        _itemType: 1
+        _itemSprite: {fileID: 21300000, guid: 484b51e0349669d4b87b2969ae22d2fa, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 4
+      - _itemNumber: 19
+        _itemName: "\uCACC \uADC0\uD55C \uD65C"
+        _itemInform: "\uCACC \uADC0\uD55C \uD65C\uC774\uB2E4. \uC0DD\uAC01\uBCF4\uB2E4
+          \uC88B\uC744\uC218\uB3C4~"
+        _itemTier: 4
+        _itemType: 2
+        _itemSprite: {fileID: 21300000, guid: 2f6f72bdab791d34baafd2a8656cc0c8, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 4
+      - _itemNumber: 20
+        _itemName: "\uCACC \uADC0\uD55C \uC0C1\uC758"
+        _itemInform: "\uCACC \uADC0\uD55C \uC0C1\uC758\uC774\uB2E4. \uC0DD\uAC01\uBCF4\uB2E4
+          \uC88B\uC744\uC218\uB3C4~"
+        _itemTier: 4
+        _itemType: 3
+        _itemSprite: {fileID: 21300000, guid: f826495a61b0c5b488fd62b9f2464de2, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 4
+      - _itemNumber: 21
+        _itemName: "\uCACC \uADC0\uD55C \uD558\uC758"
+        _itemInform: "\uCACC \uADC0\uD55C \uD558\uC758\uC774\uB2E4. \uC0DD\uAC01\uBCF4\uB2E4
+          \uC88B\uC744\uC218\uB3C4~"
+        _itemTier: 4
+        _itemType: 4
+        _itemSprite: {fileID: 21300000, guid: 6a7aaabd14cedc744970a1c747e85986, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 4
+      - _itemNumber: 22
+        _itemName: "\uCACC \uADC0\uD55C \uC5B4\uAE68 \uC7A5\uC2DD"
+        _itemInform: "\uCACC \uADC0\uD55C \uC5B4\uAE68 \uC7A5\uC2DD\uC774\uB2E4.
+          \uC0DD\uAC01\uBCF4\uB2E4 \uC88B\uC744\uC218\uB3C4~"
+        _itemTier: 4
+        _itemType: 5
+        _itemSprite: {fileID: 21300000, guid: af5df0ba07343d94fb50a7220b08f24d, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 4
+      - _itemNumber: 23
+        _itemName: "\uCACC \uADC0\uD55C \uBD80\uCE20"
+        _itemInform: "\uCACC \uADC0\uD55C \uBD80\uCE20\uC774\uB2E4. \uC0DD\uAC01\uBCF4\uB2E4
+          \uC88B\uC744\uC218\uB3C4~"
+        _itemTier: 4
+        _itemType: 6
+        _itemSprite: {fileID: 21300000, guid: 205b50e3a721b2b45af18235209dd3ce, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 4
+      - _itemNumber: 24
+        _itemName: "\uC5ED\uB300\uAE09 \uBAA8\uC790"
+        _itemInform: "\uC5ED\uB300\uAE09 \uBAA8\uC790\uC774\uB2E4. \uBB34\uC870\uAC74
+          \uC5BB\uC5B4\uBCF4\uC790!"
+        _itemTier: 5
+        _itemType: 1
+        _itemSprite: {fileID: 21300000, guid: 2fa8b1dd468a8874bbe99cd53bdbf368, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 5
+      - _itemNumber: 25
+        _itemName: "\uC5ED\uB300\uAE09 \uD65C"
+        _itemInform: "\uC5ED\uB300\uAE09 \uC774\uB2E4. \uBB34\uC870\uAC74 \uC5BB\uC5B4\uBCF4\uC790!"
+        _itemTier: 5
+        _itemType: 2
+        _itemSprite: {fileID: 21300000, guid: 6238a4c7ecb33674aa2c4c3be8d8f6a8, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 5
+      - _itemNumber: 26
+        _itemName: "\uC5ED\uB300\uAE09 \uC0C1\uC758"
+        _itemInform: "\uC5ED\uB300\uAE09 \uC0C1\uC774\uB2E4. \uBB34\uC870\uAC74 \uC5BB\uC5B4\uBCF4\uC790!"
+        _itemTier: 5
+        _itemType: 3
+        _itemSprite: {fileID: 21300000, guid: 3ed4a5425dacfd44e9a6d02fd74fc6e6, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 5
+      - _itemNumber: 27
+        _itemName: "\uC5ED\uB300\uAE09 \uD558\uC758"
+        _itemInform: "\uC5ED\uB300\uAE09 \uD558\uC774\uB2E4. \uBB34\uC870\uAC74 \uC5BB\uC5B4\uBCF4\uC790!"
+        _itemTier: 5
+        _itemType: 4
+        _itemSprite: {fileID: 21300000, guid: 125a4d05a82157540be8d8ff4e6b9610, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 5
+      - _itemNumber: 28
+        _itemName: "\uC5ED\uB300\uAE09 \uC5B4\uAE68 \uC7A5\uC2DD"
+        _itemInform: "\uC5ED\uB300\uAE09 \uC5B4\uAE68 \uC7A5\uC774\uB2E4. \uBB34\uC870\uAC74
+          \uC5BB\uC5B4\uBCF4\uC790!"
+        _itemTier: 5
+        _itemType: 5
+        _itemSprite: {fileID: 21300000, guid: 191f29988cba5d247aa48c4df33290b2, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 5
+      - _itemNumber: 29
+        _itemName: "\uC5ED\uB300\uAE09 \uBD80\uCE20"
+        _itemInform: "\uC5ED\uB300\uAE09 \uBD80\uCE20\uC774\uB2E4. \uBB34\uC870\uAC74
+          \uC5BB\uC5B4\uBCF4\uC790!"
+        _itemTier: 5
+        _itemType: 6
+        _itemSprite: {fileID: 21300000, guid: b014591363e755c4aad028b6a4570a3f, type: 3}
+        _hasItem: 0
+        _equipmentItem: 0
+        _effect: 5
   _maxHp: 10
   _attack: 1
   _defense: 0
   _speed: 5
+  _itemSprite:
+  - {fileID: 21300000, guid: 631ad9e48127fea418aeccad143241d1, type: 3}
+  - {fileID: 21300000, guid: aecf48ceb56e8874aa62120ad13529b7, type: 3}
+  - {fileID: 21300000, guid: 0f9d07eb2419f5540acf6093070a9e0c, type: 3}
+  - {fileID: 21300000, guid: 484b51e0349669d4b87b2969ae22d2fa, type: 3}
+  - {fileID: 21300000, guid: 2fa8b1dd468a8874bbe99cd53bdbf368, type: 3}
+  - {fileID: 21300000, guid: a640462d7a433cf4da57fc46814231ff, type: 3}
+  - {fileID: 21300000, guid: c6998e3e9d730a5409eb1c49a1527abd, type: 3}
+  - {fileID: 21300000, guid: 6c5a8baa002533d47b7d832e67ea00b0, type: 3}
+  - {fileID: 21300000, guid: 2f6f72bdab791d34baafd2a8656cc0c8, type: 3}
+  - {fileID: 21300000, guid: 6238a4c7ecb33674aa2c4c3be8d8f6a8, type: 3}
+  - {fileID: 21300000, guid: df979fa68198cdf45a0683009429248a, type: 3}
+  - {fileID: 21300000, guid: 0210603e932baf642b219ccca1050543, type: 3}
+  - {fileID: 21300000, guid: 401d9e5c83a94cc49a29d36d661009e7, type: 3}
+  - {fileID: 21300000, guid: f826495a61b0c5b488fd62b9f2464de2, type: 3}
+  - {fileID: 21300000, guid: 3ed4a5425dacfd44e9a6d02fd74fc6e6, type: 3}
+  - {fileID: 21300000, guid: f1a5b99d29ca49644bb0013706dcd72a, type: 3}
+  - {fileID: 21300000, guid: d0de064cad331584c896634c8057b1d2, type: 3}
+  - {fileID: 21300000, guid: b79c3b56b9229c34a8f38f6440dc1d87, type: 3}
+  - {fileID: 21300000, guid: 6a7aaabd14cedc744970a1c747e85986, type: 3}
+  - {fileID: 21300000, guid: 125a4d05a82157540be8d8ff4e6b9610, type: 3}
+  - {fileID: 21300000, guid: 39d76814f6c5be548b20f650b3b246d7, type: 3}
+  - {fileID: 21300000, guid: 450169c2ed0bad142915821671cf67b7, type: 3}
+  - {fileID: 21300000, guid: bab8bd9b4b269f7498dce04f61aba5ec, type: 3}
+  - {fileID: 21300000, guid: af5df0ba07343d94fb50a7220b08f24d, type: 3}
+  - {fileID: 21300000, guid: 191f29988cba5d247aa48c4df33290b2, type: 3}
+  - {fileID: 21300000, guid: 40c666ccd34093948ac18933a2ae5fe1, type: 3}
+  - {fileID: 21300000, guid: 5055b9650648a084797c96e53c59c1dd, type: 3}
+  - {fileID: 21300000, guid: 6e8a3eb3926d4d34b9c0b51cd6e19f85, type: 3}
+  - {fileID: 21300000, guid: 205b50e3a721b2b45af18235209dd3ce, type: 3}
+  - {fileID: 21300000, guid: b014591363e755c4aad028b6a4570a3f, type: 3}
+  _materialsArmor:
+  - {fileID: 2100000, guid: f8b4be97010f11944b95b46db6f28eae, type: 2}
+  - {fileID: 2100000, guid: 27dd9685e7bdbea4b8dcbff674fde1c4, type: 2}
+  - {fileID: 2100000, guid: 86ed6e2e59520604f9a89250f87c5da2, type: 2}
+  - {fileID: 2100000, guid: e5546db452fe51f42b5e2eb0e342ebef, type: 2}
+  - {fileID: 2100000, guid: ad4538cb9b342ba4a88a8d19094a88eb, type: 2}
+  _materialsBow:
+  - {fileID: 2100000, guid: 7a7990e5040d0e34a82643e75a298b9b, type: 2}
+  - {fileID: 2100000, guid: 66b528898bf04b04580f42a0338eb5b7, type: 2}
+  - {fileID: 2100000, guid: 1e4ffd2f00f7e2849b17a863929396d8, type: 2}
+  - {fileID: 2100000, guid: 67f4e12710f692e4ca89820e8e367a16, type: 2}
+  - {fileID: 2100000, guid: 3642e380350a63a4e84ed9705a06aa44, type: 2}
 --- !u!4 &1536763998
 Transform:
   m_ObjectHideFlags: 0
@@ -7467,20 +7825,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1536763999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536763996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2149c66fce3d5f741b2a439adbac1970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerSave: {fileID: 0}
-  _itemList: {fileID: 0}
 --- !u!224 &1539174860 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 751196944164195468, guid: 0c7b58b056beccb4fa3d009e1d2ec3d0, type: 3}

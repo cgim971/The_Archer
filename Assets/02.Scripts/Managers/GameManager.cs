@@ -1,13 +1,12 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class GameManager : SMonoBehaviour<GameManager>
 {
 
     [SerializeField] PlayerSave _playerSave;
-    [SerializeField] ItemList _itemList;
 
     [SerializeField] private int _maxHp = 10;
     [SerializeField] private int _attack = 1;
@@ -20,7 +19,6 @@ public class GameManager : SMonoBehaviour<GameManager>
     public int SPEED { get => _speed; }
 
     public PlayerSave _PLAYERSAVE { get => _playerSave; }
-    public ItemList _ITEMLIST { get => _itemList; }
 
     private int _stageNumber;
     public int STAGENUMBER
@@ -29,14 +27,61 @@ public class GameManager : SMonoBehaviour<GameManager>
         set => _stageNumber = value;
     }
 
+    [SerializeField] private Material[] _materialsArmor;
+    [SerializeField] private Material[] _materialsBow;
+    public Material Materials(int type, int index)
+    {
+        if (type != 2)
+            return _materialsArmor[index];
+        else
+            return _materialsBow[index];
+    }
+
+    private string SAVE_PATH = "";
+    private readonly string SAVE_FILENAME = "/SaveFile.txt";
+
     protected override void Awake()
     {
         base.Awake();
 
-        _playerSave = Resources.Load<PlayerSave>("Saves/Player/PlayerSave");
-        _itemList = Resources.Load<ItemList>("Saves/Lists/ItemList");
-
+        SAVE_PATH = Application.dataPath + "/Save";
         STAGENUMBER = 0;
+
+        if (!Directory.Exists(SAVE_PATH))
+        {
+            Directory.CreateDirectory(SAVE_PATH);
+
+
+        }
+
+        LoadFronJson();
+        InvokeRepeating("SaveToJson", 1f, 60f);
+    }
+
+    private void LoadFronJson()
+    {
+        string json = "";
+        if (File.Exists(SAVE_PATH + SAVE_FILENAME))
+        {
+            json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
+            _playerSave = JsonUtility.FromJson<PlayerSave>(json);
+        }
+        else
+        {
+
+
+            SaveToJson();
+            LoadFronJson();
+        }
+    }
+
+    public void SaveToJson()
+    {
+        SAVE_PATH = Application.dataPath + "/Save";
+        if (_playerSave == null) return;
+
+        string json = JsonUtility.ToJson(_playerSave, true);
+        File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
     }
 
     public void ItemEffect()
@@ -47,7 +92,7 @@ public class GameManager : SMonoBehaviour<GameManager>
         _playerSave._SPEED = _speed;
 
 
-        foreach (ItemSave itemSave in _itemList._ITEMSAVES)
+        foreach (ItemSave itemSave in _playerSave._itemList._itemSaves)
         {
             if (!itemSave._EQUIPMENTITEM) continue;
 
@@ -75,73 +120,8 @@ public class GameManager : SMonoBehaviour<GameManager>
         }
     }
 
-    //void SetHasItemCount(int index)
-    //{
-    //    int count = 0;
-    //    for (int i = 0; i < _itemList._ITEMTYPESAVES[index]._ITEMSAVES.Count; i++)
-    //    {
-    //        if (_itemList._ITEMTYPESAVES[index]._ITEMSAVES[i]._HASITEM)
-    //        {
-    //            count++;
-    //        }
-    //    }
-
-    //    _itemList._ITEMTYPESAVES[index]._HASITEMCOUNT = count;
-    //    return;
-    //}
-
-
-    //public void SetDefense(ItemTypeList list)
-    //{
-    //    float index = 1;
-
-    //    foreach (ItemSave item in list._ITEMSAVES)
-    //    {
-    //        if (item._HASITEM)
-    //            index += item._EFFECT;
-    //    }
-
-    //    _PLAYERSAVE._DEFENSE = index;
-    //}
-
-    //public void SetDefense()
-    //{
-    //    float index = 1;
-
-    //    foreach (ItemTypeList list in _itemList._ITEMTYPESAVES)
-    //    {
-    //        foreach (ItemSave item in list._ITEMSAVES)
-    //        {
-    //            if (item._HASITEM)
-    //                index += item._EFFECT;
-    //        }
-    //    }
-
-    //    _PLAYERSAVE._DEFENSE = index;
-    //}
-
-    //public void SetAttack(ItemTypeList list)
-    //{
-    //    float index = 2;
-
-    //    foreach (ItemSave item in list._ITEMSAVES)
-    //    {
-    //        if (item._HASITEM)
-    //            index += item._EFFECT;
-    //    }
-
-    //    _PLAYERSAVE._ATTACK = index;
-    //}
-    //public void SetAttack()
-    //{
-    //    float index = 2;
-
-    //    foreach (ItemSave item in _itemList._ITEMTYPESAVES[1]._ITEMSAVES)
-    //    {
-    //        if (item._HASITEM)
-    //            index += item._EFFECT;
-    //    }
-
-    //    _PLAYERSAVE._ATTACK = index;
-    //}
+    private void OnApplicationQuit()
+    {
+        SaveToJson();
+    }
 }

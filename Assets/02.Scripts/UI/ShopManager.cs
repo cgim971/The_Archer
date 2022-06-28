@@ -38,7 +38,7 @@ public class ShopManager : MonoBehaviour
 
         _titleText.text = item._ITEMNAME;
         _contentsText.text = item._ITEMINFORM;
-        _itemImage.sprite = item._ITEMSPRITE;
+        _itemImage.sprite = GameManager.Instance._PLAYERSAVE._itemList._itemSaves[item._ITEMNUMBER]._itemSprite;
     }
 
     public void Close()
