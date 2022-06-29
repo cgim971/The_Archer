@@ -1,6 +1,6 @@
 ﻿{
-    "_money": 15,
-    "_hp": 3.0,
+    "_money": 0,
+    "_hp": 10.0,
     "_maxHp": 10.0,
     "_attack": 1.0,
     "_defense": 0.0,
@@ -14,7 +14,7 @@
                 "_itemTier": 1,
                 "_itemType": 1,
                 "_itemSprite": {
-                    "instanceID": 32210
+                    "instanceID": 28964
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -27,7 +27,7 @@
                 "_itemTier": 1,
                 "_itemType": 2,
                 "_itemSprite": {
-                    "instanceID": 32212
+                    "instanceID": 28966
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -40,7 +40,7 @@
                 "_itemTier": 1,
                 "_itemType": 3,
                 "_itemSprite": {
-                    "instanceID": 32214
+                    "instanceID": 28968
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -53,7 +53,7 @@
                 "_itemTier": 1,
                 "_itemType": 4,
                 "_itemSprite": {
-                    "instanceID": 32216
+                    "instanceID": 28970
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -66,7 +66,7 @@
                 "_itemTier": 1,
                 "_itemType": 5,
                 "_itemSprite": {
-                    "instanceID": 32218
+                    "instanceID": 28972
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -79,7 +79,7 @@
                 "_itemTier": 1,
                 "_itemType": 6,
                 "_itemSprite": {
-                    "instanceID": 32220
+                    "instanceID": 28974
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -92,7 +92,7 @@
                 "_itemTier": 2,
                 "_itemType": 1,
                 "_itemSprite": {
-                    "instanceID": 32222
+                    "instanceID": 28976
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -105,7 +105,7 @@
                 "_itemTier": 2,
                 "_itemType": 2,
                 "_itemSprite": {
-                    "instanceID": 32224
+                    "instanceID": 28978
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -118,7 +118,7 @@
                 "_itemTier": 2,
                 "_itemType": 3,
                 "_itemSprite": {
-                    "instanceID": 32226
+                    "instanceID": 28980
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -131,7 +131,7 @@
                 "_itemTier": 2,
                 "_itemType": 4,
                 "_itemSprite": {
-                    "instanceID": 32228
+                    "instanceID": 28982
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -144,7 +144,7 @@
                 "_itemTier": 2,
                 "_itemType": 5,
                 "_itemSprite": {
-                    "instanceID": 32230
+                    "instanceID": 28984
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -157,7 +157,7 @@
                 "_itemTier": 2,
                 "_itemType": 6,
                 "_itemSprite": {
-                    "instanceID": 32232
+                    "instanceID": 28986
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -170,7 +170,7 @@
                 "_itemTier": 3,
                 "_itemType": 1,
                 "_itemSprite": {
-                    "instanceID": 32234
+                    "instanceID": 28988
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -183,7 +183,7 @@
                 "_itemTier": 3,
                 "_itemType": 2,
                 "_itemSprite": {
-                    "instanceID": 32236
+                    "instanceID": 28990
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -196,7 +196,7 @@
                 "_itemTier": 3,
                 "_itemType": 3,
                 "_itemSprite": {
-                    "instanceID": 32238
+                    "instanceID": 28992
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -209,7 +209,7 @@
                 "_itemTier": 3,
                 "_itemType": 4,
                 "_itemSprite": {
-                    "instanceID": 32240
+                    "instanceID": 28994
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -222,7 +222,7 @@
                 "_itemTier": 3,
                 "_itemType": 5,
                 "_itemSprite": {
-                    "instanceID": 32242
+                    "instanceID": 28996
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -235,7 +235,7 @@
                 "_itemTier": 3,
                 "_itemType": 6,
                 "_itemSprite": {
-                    "instanceID": 32244
+                    "instanceID": 28998
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -248,7 +248,7 @@
                 "_itemTier": 4,
                 "_itemType": 1,
                 "_itemSprite": {
-                    "instanceID": 32246
+                    "instanceID": 29000
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -261,7 +261,7 @@
                 "_itemTier": 4,
                 "_itemType": 2,
                 "_itemSprite": {
-                    "instanceID": 32248
+                    "instanceID": 29002
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -274,7 +274,7 @@
                 "_itemTier": 4,
                 "_itemType": 3,
                 "_itemSprite": {
-                    "instanceID": 32250
+                    "instanceID": 29004
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -287,7 +287,7 @@
                 "_itemTier": 4,
                 "_itemType": 4,
                 "_itemSprite": {
-                    "instanceID": 32252
+                    "instanceID": 29006
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -300,7 +300,7 @@
                 "_itemTier": 4,
                 "_itemType": 5,
                 "_itemSprite": {
-                    "instanceID": 32254
+                    "instanceID": 29008
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -313,7 +313,7 @@
                 "_itemTier": 4,
                 "_itemType": 6,
                 "_itemSprite": {
-                    "instanceID": 32256
+                    "instanceID": 29010
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -326,7 +326,7 @@
                 "_itemTier": 5,
                 "_itemType": 1,
                 "_itemSprite": {
-                    "instanceID": 0
+                    "instanceID": 29012
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -339,7 +339,7 @@
                 "_itemTier": 5,
                 "_itemType": 2,
                 "_itemSprite": {
-                    "instanceID": 32260
+                    "instanceID": 29014
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -352,7 +352,7 @@
                 "_itemTier": 5,
                 "_itemType": 3,
                 "_itemSprite": {
-                    "instanceID": 32262
+                    "instanceID": 29016
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -365,7 +365,7 @@
                 "_itemTier": 5,
                 "_itemType": 4,
                 "_itemSprite": {
-                    "instanceID": 32264
+                    "instanceID": 29018
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -378,7 +378,7 @@
                 "_itemTier": 5,
                 "_itemType": 5,
                 "_itemSprite": {
-                    "instanceID": 32266
+                    "instanceID": 29020
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
@@ -391,12 +391,14 @@
                 "_itemTier": 5,
                 "_itemType": 6,
                 "_itemSprite": {
-                    "instanceID": 32268
+                    "instanceID": 29022
                 },
                 "_hasItem": false,
                 "_equipmentItem": false,
                 "_effect": 5.0
             }
         ]
-    }
+    },
+    "_bgmVolume": 0.20000000298023225,
+    "_effectVolume": 0.20000000298023225
 }

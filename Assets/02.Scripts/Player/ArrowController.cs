@@ -18,6 +18,8 @@ public class ArrowController : MonoBehaviour
         dir.Normalize();
 
         _rigid.velocity = dir * _speed;
+
+        GetComponent<AudioSource>().volume = GameManager.Instance._PLAYERSAVE._effectVolume;
     }
 
     private void OnTriggerEnter(Collider other)

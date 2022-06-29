@@ -27,6 +27,10 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private int _money;
 
+    public Slider _bgmSlider;
+    public AudioSource _bgmAudioSource;
+    public Slider _effectSlider;
+
     private void Awake()
     {
         instance = this;
@@ -43,9 +47,18 @@ public class StageManager : MonoBehaviour
         _endGameBtn.onClick.AddListener(() => Application.Quit());
         _lobbyBtn2.onClick.AddListener(() => Lobby());
 
+        _bgmAudioSource.volume = GameManager.Instance._PLAYERSAVE._bgmVolume;
+        _effectSlider.value = GameManager.Instance._PLAYERSAVE._effectVolume;
+
         OffSetting();
     }
 
+    private void Update()
+    {
+        _bgmAudioSource.volume = _bgmSlider.value;
+        GameManager.Instance._PLAYERSAVE._bgmVolume = _bgmSlider.value;
+        GameManager.Instance._PLAYERSAVE._effectVolume = _effectSlider.value;
+    }
     public void OnSetting()
     {
         Time.timeScale = 0;

@@ -16,6 +16,9 @@ public class PlayerSave
 
     public ItemList _itemList;
 
+    public float _bgmVolume;
+    public float _effectVolume;
+
     public long _MONEY
     {
         get => _money;

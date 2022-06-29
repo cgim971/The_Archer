@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1938878061860714133}
   - component: {fileID: 5252089886000120130}
   - component: {fileID: 6105406702408817706}
-  - component: {fileID: 3710074645288606687}
+  - component: {fileID: 5686980044848705911}
   m_Layer: 8
   m_Name: arrow
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1.3710905, z: 0.21}
   m_Center: {x: 0, y: -0.042472303, z: 0.000000010244548}
---- !u!82 &3710074645288606687
+--- !u!82 &5686980044848705911
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eff531dd365164341ad2acd12e49ad23, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9c6a8a0e9070ced43b77dcb867e5ee7a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
