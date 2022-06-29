@@ -156,6 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.cgim971.TheArcher
+    Standalone: com.cgim971.The-Archer
   buildNumber:
     Standalone: 0
     iPhone: 0

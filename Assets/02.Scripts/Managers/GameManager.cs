@@ -58,6 +58,18 @@ public class GameManager : SMonoBehaviour<GameManager>
         InvokeRepeating("SaveToJson", 1f, 60f);
     }
 
+    private void Start()
+    {
+        SetResolution();
+    }
+
+    void SetResolution()
+    {
+        int setWidth = 1440;
+        int setHeight = 2960;
+
+        Screen.SetResolution(setWidth / 3, setHeight / 3, true);
+    }
     private void LoadFronJson()
     {
         string json = "";

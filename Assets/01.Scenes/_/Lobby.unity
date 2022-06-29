@@ -3257,10 +3257,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1440, y: 600}
+  m_ReferenceResolution: {x: 1440, y: 2960}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4734,8 +4734,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1738667871}
   m_HandleRect: {fileID: 1738667870}
   m_Direction: 0
-  m_Value: -0.000000056514025
-  m_Size: 0.24999999
+  m_Value: -0.00000011302808
+  m_Size: 0.25000003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
