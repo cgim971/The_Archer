@@ -1,0 +1,402 @@
+﻿{
+    "_money": 15,
+    "_hp": 3.0,
+    "_maxHp": 10.0,
+    "_attack": 1.0,
+    "_defense": 0.0,
+    "_speed": 5.0,
+    "_itemList": {
+        "_itemSaves": [
+            {
+                "_itemNumber": 0,
+                "_itemName": "흔한 모자",
+                "_itemInform": "흔하디 흔한 모자이다. 아주 약간의 방어력이 상승한다.",
+                "_itemTier": 1,
+                "_itemType": 1,
+                "_itemSprite": {
+                    "instanceID": 32210
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 1.0
+            },
+            {
+                "_itemNumber": 1,
+                "_itemName": "흔한 무기",
+                "_itemInform": "흔하디 흔한 무기이다. 아주 약간의 공격력이 상승한다.",
+                "_itemTier": 1,
+                "_itemType": 2,
+                "_itemSprite": {
+                    "instanceID": 32212
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 1.0
+            },
+            {
+                "_itemNumber": 2,
+                "_itemName": "흔한 상의",
+                "_itemInform": "흔하디 흔한 상의이다. 아주 약간의 체력이 증가한다.",
+                "_itemTier": 1,
+                "_itemType": 3,
+                "_itemSprite": {
+                    "instanceID": 32214
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 1.0
+            },
+            {
+                "_itemNumber": 3,
+                "_itemName": "흔한 하의",
+                "_itemInform": "흔하디 흔한 하의이다.",
+                "_itemTier": 1,
+                "_itemType": 4,
+                "_itemSprite": {
+                    "instanceID": 32216
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 1.0
+            },
+            {
+                "_itemNumber": 4,
+                "_itemName": "흔한 어깨 장식",
+                "_itemInform": "흔하디 흔한 어깨 장식이다. 아주 약간의 방어력이 상승한다.",
+                "_itemTier": 1,
+                "_itemType": 5,
+                "_itemSprite": {
+                    "instanceID": 32218
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 1.0
+            },
+            {
+                "_itemNumber": 5,
+                "_itemName": "흔한 부츠",
+                "_itemInform": "흔하디 흔한 부츠이다. 아주 약간의 스피드가 빨라진다.",
+                "_itemTier": 1,
+                "_itemType": 6,
+                "_itemSprite": {
+                    "instanceID": 32220
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 1.0
+            },
+            {
+                "_itemNumber": 6,
+                "_itemName": "덜 흔한 모자",
+                "_itemInform": "덜 흔한 모자이다. 흔한 모자보다는 조금 더 방어력이 높다.",
+                "_itemTier": 2,
+                "_itemType": 1,
+                "_itemSprite": {
+                    "instanceID": 32222
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 2.0
+            },
+            {
+                "_itemNumber": 7,
+                "_itemName": "덜 흔한 활",
+                "_itemInform": "덜 흔한 활이다. 흔한 홥보다는 조금  공격력이 높다.",
+                "_itemTier": 2,
+                "_itemType": 2,
+                "_itemSprite": {
+                    "instanceID": 32224
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 2.0
+            },
+            {
+                "_itemNumber": 8,
+                "_itemName": "덜 흔한 상의",
+                "_itemInform": "덜 흔한 상의이다. 흔한 상의보다는 조금 더 체력이 높다.",
+                "_itemTier": 2,
+                "_itemType": 3,
+                "_itemSprite": {
+                    "instanceID": 32226
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 2.0
+            },
+            {
+                "_itemNumber": 9,
+                "_itemName": "덜 흔한 하의",
+                "_itemInform": "덜 흔한 하의이다. 흔한 하의보다는 조금 더 체력이 높다.",
+                "_itemTier": 2,
+                "_itemType": 4,
+                "_itemSprite": {
+                    "instanceID": 32228
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 2.0
+            },
+            {
+                "_itemNumber": 10,
+                "_itemName": "덜 흔한 어깨 장식",
+                "_itemInform": "덜 흔한 어깨 장식이다. 흔한 어깨 장식보다는 조금 더 방어력이 증가한다.",
+                "_itemTier": 2,
+                "_itemType": 5,
+                "_itemSprite": {
+                    "instanceID": 32230
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 2.0
+            },
+            {
+                "_itemNumber": 11,
+                "_itemName": "덜 흔한 부츠",
+                "_itemInform": "덜 흔한 부츠이다. 흔한 부츠보다는 조금 더 스피가 빠르다.",
+                "_itemTier": 2,
+                "_itemType": 6,
+                "_itemSprite": {
+                    "instanceID": 32232
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 2.0
+            },
+            {
+                "_itemNumber": 12,
+                "_itemName": "평범한 모자",
+                "_itemInform": "평범한 모자이다. 덜 흔한 모자보다 방어력이 높다.",
+                "_itemTier": 3,
+                "_itemType": 1,
+                "_itemSprite": {
+                    "instanceID": 32234
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 3.0
+            },
+            {
+                "_itemNumber": 13,
+                "_itemName": "평범한 활",
+                "_itemInform": "평범한 활이다. 덜 흔한 활보다 공격력이 높다.",
+                "_itemTier": 3,
+                "_itemType": 2,
+                "_itemSprite": {
+                    "instanceID": 32236
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 3.0
+            },
+            {
+                "_itemNumber": 14,
+                "_itemName": "평범한 상의",
+                "_itemInform": "평범한 상의이다. 덜 흔한 상의보다 체력이 높다.",
+                "_itemTier": 3,
+                "_itemType": 3,
+                "_itemSprite": {
+                    "instanceID": 32238
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 3.0
+            },
+            {
+                "_itemNumber": 15,
+                "_itemName": "평범한 하의",
+                "_itemInform": "평범한 하의이다. 덜 흔한 하의보다 체력이 높다.",
+                "_itemTier": 3,
+                "_itemType": 4,
+                "_itemSprite": {
+                    "instanceID": 32240
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 3.0
+            },
+            {
+                "_itemNumber": 16,
+                "_itemName": "평범한 어깨 장식",
+                "_itemInform": "평범한 어깨 장식이다. 덜 흔한 어깨 장식보다 방어력이 높다.",
+                "_itemTier": 3,
+                "_itemType": 5,
+                "_itemSprite": {
+                    "instanceID": 32242
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 3.0
+            },
+            {
+                "_itemNumber": 17,
+                "_itemName": "평범한 부츠",
+                "_itemInform": "평범한 부츠이다. 덜 흔한 부츠보다 스피드가 높다.",
+                "_itemTier": 3,
+                "_itemType": 6,
+                "_itemSprite": {
+                    "instanceID": 32244
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 3.0
+            },
+            {
+                "_itemNumber": 18,
+                "_itemName": "쫌 귀한 모자",
+                "_itemInform": "쫌 귀한 모자이다. 생각보다 좋을수도~",
+                "_itemTier": 4,
+                "_itemType": 1,
+                "_itemSprite": {
+                    "instanceID": 32246
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 4.0
+            },
+            {
+                "_itemNumber": 19,
+                "_itemName": "쫌 귀한 활",
+                "_itemInform": "쫌 귀한 활이다. 생각보다 좋을수도~",
+                "_itemTier": 4,
+                "_itemType": 2,
+                "_itemSprite": {
+                    "instanceID": 32248
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 4.0
+            },
+            {
+                "_itemNumber": 20,
+                "_itemName": "쫌 귀한 상의",
+                "_itemInform": "쫌 귀한 상의이다. 생각보다 좋을수도~",
+                "_itemTier": 4,
+                "_itemType": 3,
+                "_itemSprite": {
+                    "instanceID": 32250
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 4.0
+            },
+            {
+                "_itemNumber": 21,
+                "_itemName": "쫌 귀한 하의",
+                "_itemInform": "쫌 귀한 하의이다. 생각보다 좋을수도~",
+                "_itemTier": 4,
+                "_itemType": 4,
+                "_itemSprite": {
+                    "instanceID": 32252
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 4.0
+            },
+            {
+                "_itemNumber": 22,
+                "_itemName": "쫌 귀한 어깨 장식",
+                "_itemInform": "쫌 귀한 어깨 장식이다. 생각보다 좋을수도~",
+                "_itemTier": 4,
+                "_itemType": 5,
+                "_itemSprite": {
+                    "instanceID": 32254
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 4.0
+            },
+            {
+                "_itemNumber": 23,
+                "_itemName": "쫌 귀한 부츠",
+                "_itemInform": "쫌 귀한 부츠이다. 생각보다 좋을수도~",
+                "_itemTier": 4,
+                "_itemType": 6,
+                "_itemSprite": {
+                    "instanceID": 32256
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 4.0
+            },
+            {
+                "_itemNumber": 24,
+                "_itemName": "역대급 모자",
+                "_itemInform": "역대급 모자이다. 무조건 얻어보자!",
+                "_itemTier": 5,
+                "_itemType": 1,
+                "_itemSprite": {
+                    "instanceID": 0
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 5.0
+            },
+            {
+                "_itemNumber": 25,
+                "_itemName": "역대급 활",
+                "_itemInform": "역대급 이다. 무조건 얻어보자!",
+                "_itemTier": 5,
+                "_itemType": 2,
+                "_itemSprite": {
+                    "instanceID": 32260
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 5.0
+            },
+            {
+                "_itemNumber": 26,
+                "_itemName": "역대급 상의",
+                "_itemInform": "역대급 상이다. 무조건 얻어보자!",
+                "_itemTier": 5,
+                "_itemType": 3,
+                "_itemSprite": {
+                    "instanceID": 32262
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 5.0
+            },
+            {
+                "_itemNumber": 27,
+                "_itemName": "역대급 하의",
+                "_itemInform": "역대급 하이다. 무조건 얻어보자!",
+                "_itemTier": 5,
+                "_itemType": 4,
+                "_itemSprite": {
+                    "instanceID": 32264
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 5.0
+            },
+            {
+                "_itemNumber": 28,
+                "_itemName": "역대급 어깨 장식",
+                "_itemInform": "역대급 어깨 장이다. 무조건 얻어보자!",
+                "_itemTier": 5,
+                "_itemType": 5,
+                "_itemSprite": {
+                    "instanceID": 32266
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 5.0
+            },
+            {
+                "_itemNumber": 29,
+                "_itemName": "역대급 부츠",
+                "_itemInform": "역대급 부츠이다. 무조건 얻어보자!",
+                "_itemTier": 5,
+                "_itemType": 6,
+                "_itemSprite": {
+                    "instanceID": 32268
+                },
+                "_hasItem": false,
+                "_equipmentItem": false,
+                "_effect": 5.0
+            }
+        ]
+    }
+}
